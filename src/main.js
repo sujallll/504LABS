@@ -107,71 +107,138 @@ function initAudioToggle() {
 /* ==========================================================================
    3. PORTFOLIO & FILTERING
    ========================================================================== */
+/* ==========================================================================
+   3. PORTFOLIO & FILTERING (3x2 EDITORIAL ARCHIVE)
+   ========================================================================== */
 function initPortfolio() {
   const grid = document.getElementById('portfolio-grid');
   const filterBtns = document.querySelectorAll('.filter-btn');
 
+  let currentFilter = 'ALL';
+  let isTransitioning = false;
+
   function renderProjects(filter = 'ALL') {
     if (!grid) return;
-    grid.innerHTML = '';
 
     const filtered = filter === 'ALL'
       ? portfolioProjects
       : portfolioProjects.filter(p => p.category === filter);
 
-    filtered.forEach(project => {
-      const card = document.createElement('article');
-      card.className = `project-card ${project.highlight ? 'card-highlight' : ''}`;
+    grid.innerHTML = '';
+
+    filtered.forEach((project, index) => {
+      const card = document.createElement('a');
+      card.href = project.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.className = 'project-card';
       card.setAttribute('data-id', project.id);
-      card.tabIndex = 0;
+      card.setAttribute('aria-label', `${project.title} — ${project.subtitle} (Opens live website in new tab)`);
+
+      // First 3 items load eager for fast LCP/TTFB
+      const loadingAttr = index < 3 ? 'eager' : 'lazy';
 
       card.innerHTML = `
         <div class="card-media">
-          <img src="${project.image}" alt="${project.title}" class="card-img" loading="lazy">
-          <span class="card-tag">// ${project.number}</span>
+          <div class="card-img-wrapper">
+            <img src="${project.image}" alt="${project.title} live interface preview" class="card-img" loading="${loadingAttr}">
+          </div>
+          <span class="card-tag" data-num="${project.number}">// ${project.number}</span>
         </div>
         <div class="card-body">
           <h3 class="card-title">${project.title}</h3>
           <div class="card-category">${project.subtitle}</div>
           <div class="card-action">
-            <span>VIEW PROJECT</span>
-            <span class="arrow">→</span>
+            <span class="cta-label">VIEW PROJECT</span>
+            <span class="arrow" aria-hidden="true">→</span>
           </div>
         </div>
       `;
 
-      card.addEventListener('click', () => {
-        audioFx.playClick();
-        openProjectModal(project.id);
+      // Micro-interactions on Card
+      const tagEl = card.querySelector('.card-tag');
+      const imgEl = card.querySelector('.card-img');
+
+      // 1. Mouse move parallax pan on image
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const normX = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
+        const normY = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
+
+        const panX = Math.round(normX * 8); // max 8px shift
+        const panY = Math.round(normY * 8); // max 8px shift
+
+        card.style.setProperty('--pan-x', `${panX}px`);
+        card.style.setProperty('--pan-y', `${panY}px`);
       });
 
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          openProjectModal(project.id);
+      // 2. Mouse enter: transform number to // OPEN ↗ & handle editorial focus
+      card.addEventListener('mouseenter', () => {
+        if (tagEl) {
+          tagEl.textContent = '// OPEN ↗';
         }
+        grid.classList.add('has-active-card');
+        card.classList.add('is-active');
+      });
+
+      // 3. Mouse leave: reset tag & parallax
+      card.addEventListener('mouseleave', () => {
+        if (tagEl) {
+          tagEl.textContent = `// ${project.number}`;
+        }
+        card.style.setProperty('--pan-x', '0px');
+        card.style.setProperty('--pan-y', '0px');
+        card.classList.remove('is-active');
+
+        // Check if no cards are hovered
+        if (!grid.querySelector('.project-card:hover')) {
+          grid.classList.remove('has-active-card');
+        }
+      });
+
+      // 4. Click sound telemetry
+      card.addEventListener('click', () => {
+        audioFx.playClick();
       });
 
       grid.appendChild(card);
     });
   }
 
+  // Filter button handlers with silky transition
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      const selectedFilter = btn.dataset.filter;
+      if (selectedFilter === currentFilter || isTransitioning) return;
+
       audioFx.playClick();
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProjects(btn.dataset.filter);
+      isTransitioning = true;
+      currentFilter = selectedFilter;
+
+      filterBtns.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      grid.classList.add('filtering');
+
+      setTimeout(() => {
+        renderProjects(selectedFilter);
+        grid.classList.remove('filtering');
+        isTransitioning = false;
+      }, 180);
     });
   });
 
   renderProjects('ALL');
 
-  // Case study button listener
+  // Case study dossier button listener
   const caseStudyBtn = document.getElementById('view-case-study-btn');
   if (caseStudyBtn) {
     caseStudyBtn.addEventListener('click', () => {
       audioFx.playClick();
-      openProjectModal(caseStudyBtn.dataset.projectId);
+      openProjectModal(caseStudyBtn.dataset.projectId || 'thebullseye');
     });
   }
 }

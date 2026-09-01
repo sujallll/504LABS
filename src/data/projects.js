@@ -20,8 +20,7 @@ export const portfolioProjects = [
     subtitle: "CREATIVE / SAAS / MARKETING",
     category: "CREATIVE / SAAS",
     url: "https://thebullseye.in/",
-    highlight: true, // Highlighted neo-brutalist active card
-    image: "/assets/thebullseye.png",
+    image: "/assets/thebullseye.jpg",
     client: "THEBULLSEYE INC.",
     year: "2025",
     role: "Strategy-First SaaS Video & High-Performance Design Systems",
@@ -29,7 +28,7 @@ export const portfolioProjects = [
     challenge: "Translate complex technical B2B SaaS value propositions into punchy, high-retention video narratives and interactive performance ad frameworks.",
     solution: "High-contrast visual design, kinetic 3D UI demo carousels, custom motion graphics pipeline, and modular conversion-optimized creative architectures.",
     deliverables: ["SaaS Video Strategy", "UI/UX Architecture", "Motion Systems", "Performance Ad Creatives"],
-    metrics: "3.8x Conversion Lift // Over 5M+ Ad Impressions // 100% On-Time Delivery"
+    metrics: "Strategy-First SaaS Video // High-Performance Creative Architecture"
   },
   {
     id: "meraki-square-foot",
@@ -38,7 +37,6 @@ export const portfolioProjects = [
     subtitle: "REAL ESTATE / PROPERTY",
     category: "REAL ESTATE",
     url: "https://www.merakisquarefootsllp.co.in/",
-    highlight: false,
     image: "/assets/meraki_property.jpg",
     client: "MERAKI SQUARE FOOT LLP",
     year: "2025",
@@ -47,7 +45,7 @@ export const portfolioProjects = [
     challenge: "Deliver an ultra-responsive, architectural digital portal allowing investors and homebuyers to explore expansive property layouts with zero lag.",
     solution: "Sharp architectural layout, high-res interactive floor plans, lightning-fast property filtering, and high-conversion lead telemetry.",
     deliverables: ["Real Estate Web Platform", "Interactive Property Navigator", "Lead Capture Engine", "SEO Architecture"],
-    metrics: "+220% High-Intent Inquiries // 0.28s Page Load // 100% Mobile Optimized"
+    metrics: "Property Advisory // Interior Design // Architectural Showcase"
   },
   {
     id: "surety-bond-hub",
@@ -56,7 +54,6 @@ export const portfolioProjects = [
     subtitle: "FINANCE / B2B",
     category: "FINANCE & B2B",
     url: "https://suretybondhub.in/",
-    highlight: false,
     image: "/assets/surety_bond.jpg",
     client: "SURETY BOND HUB INDIA",
     year: "2024",
@@ -65,7 +62,7 @@ export const portfolioProjects = [
     challenge: "Demystify rigid institutional bonding processes and establish high trust through a secure, modern digital underwriting interface.",
     solution: "Industrial data architecture, instantaneous bond eligibility calculators, bank-grade encrypted submission flows, and transparent underwriting workflows.",
     deliverables: ["Fintech Platform", "Automated Eligibility Engine", "Enterprise Underwriting Portal", "Design System"],
-    metrics: "₹500Cr+ Bonds Processed // 70% Reduction in Issuance Turnaround // Zero-Friction Flow"
+    metrics: "Infrastructure & EPC Bonding // PSU & Government Underwriting"
   },
   {
     id: "the-cpi-coach",
@@ -74,16 +71,15 @@ export const portfolioProjects = [
     subtitle: "CONSULTING / PROFESSIONAL SERVICES",
     category: "CONSULTING",
     url: "https://the-cpi-coach.vercel.app/",
-    highlight: false,
     image: "/assets/cpi_coach.jpg",
-    client: "THE CPI COACH ACADEMY",
+    client: "THE CPI COACH",
     year: "2025",
-    role: "Executive Coaching Portal & Digital Knowledge Platform",
-    description: "A modern, precision-engineered leadership and continuous performance improvement (CPI) consulting platform for enterprise executives and high-growth leaders.",
-    challenge: "Create an authoritative, high-impact digital presence that positions executive coaching with technical precision and structured methodologies.",
+    role: "Business Excellence, Governance & Cybersecurity Platform",
+    description: "A modern, precision-engineered consulting platform for enterprise business excellence, corporate governance, cybersecurity resilience, and GRC transformation.",
+    challenge: "Create an authoritative, high-impact digital presence that positions executive consulting with technical precision and structured methodologies.",
     solution: "Editorial typography, modular diagnostic tools, seamless calendar scheduling, and interactive leadership assessment frameworks.",
     deliverables: ["Brand Identity", "Web Application", "Executive Diagnostic Tools", "Course Hub"],
-    metrics: "98% Executive Satisfaction // Global C-Suite Client Roster // Sub-second TTFB"
+    metrics: "Business Excellence // ISO 27001 & SOC 2 // Board Advisory"
   },
   {
     id: "tripscape-adventures",
@@ -92,16 +88,15 @@ export const portfolioProjects = [
     subtitle: "TRAVEL / TOURISM",
     category: "TRAVEL & LOGISTICS",
     url: "https://www.tripscapeadventures.in/",
-    highlight: false,
     image: "/assets/tripscape.jpg",
-    client: "TRIPSCAPE EXPEDITIONS",
+    client: "TRIPSCAPE ADVENTURES",
     year: "2025",
-    role: "Experiential Travel Platform & Expedition Booking Engine",
-    description: "An immersive adventure travel portal curating high-altitude treks, extreme wilderness expeditions, and experiential journeys across the Himalayas and beyond.",
+    role: "Curated Group Travel & Adventure Expedition Platform",
+    description: "An immersive adventure travel portal curating group travel experiences, high-altitude expeditions, and experiential journeys across India.",
     challenge: "Capture the raw physical grandeur of rugged topography while delivering an effortless, high-trust mobile expedition booking flow.",
-    solution: "Dramatic editorial photography treatments, interactive trail altitude profiles, equipment checklists, and instant departure slot reservations.",
+    solution: "Dramatic editorial photography treatments, interactive route profiles, equipment checklists, and instant departure slot reservations.",
     deliverables: ["Expedition Booking Platform", "Interactive Route Maps", "Visual Content Strategy", "CMS Integration"],
-    metrics: "15K+ Travelers Guided // 4.9/5 Average Rating // 3.4x Direct Bookings Growth"
+    metrics: "Curated Group Adventures // Cinematic Expeditions Across India"
   },
   {
     id: "shravi-logistics",
@@ -110,16 +105,15 @@ export const portfolioProjects = [
     subtitle: "LOGISTICS / CORPORATE",
     category: "TRAVEL & LOGISTICS",
     url: "https://www.shravilogistics.com/",
-    highlight: false,
     image: "/assets/shravi_logistics.jpg",
     client: "SHRAVI LOGISTICS CORP",
     year: "2024",
-    role: "Global Freight Telemetry & Supply Chain Corporate System",
-    description: "A robust corporate web platform and freight management interface powering pan-national cargo transport, warehouse distribution, and supply chain logistics.",
+    role: "UK Freight Telemetry & Supply Chain Corporate System",
+    description: "A robust corporate web platform and freight infrastructure interface delivering vital logistics, warehouse distribution, and supply chain solutions across the UK.",
     challenge: "Build a modern industrial platform that communicates scale, operational reliability, and real-time transit telemetry to enterprise supply chain managers.",
     solution: "High-density industrial layout, fleet tracking simulations, instant shipment quote configurators, and corporate multi-hub directory.",
     deliverables: ["Corporate Logistics Platform", "Freight Quote Engine", "Fleet Network Directory", "Responsive Architecture"],
-    metrics: "500K+ Metric Tons Shipped // 99.4% On-Time Telemetry // Multi-National Network"
+    metrics: "Vital UK Logistics // Sustainable Community Infrastructure"
   }
 ];
 

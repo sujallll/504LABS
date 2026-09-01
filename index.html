@@ -101,24 +101,29 @@
       <!-- ==========================================
            SELECTED WORK / PORTFOLIO
            ========================================== -->
-      <section id="work" class="work-section">
+      <!-- ==========================================
+           SELECTED WORK / PORTFOLIO (3x2 EDITORIAL GRID)
+           ========================================== -->
+      <section id="work" class="work-section" aria-label="Selected Work & Real-World Projects">
         <div class="section-header-bar">
           <div class="section-title-wrap">
             <h2 class="section-title">SELECTED WORK</h2>
+            <span class="section-meta-tag">// ARCHIVE [06 PROJECTS]</span>
           </div>
-          <div class="section-filter-bar">
-            <button class="filter-btn active" data-filter="ALL">ALL [06]</button>
-            <button class="filter-btn" data-filter="CREATIVE / SAAS">CREATIVE / SAAS</button>
-            <button class="filter-btn" data-filter="REAL ESTATE">REAL ESTATE</button>
-            <button class="filter-btn" data-filter="FINANCE & B2B">FINANCE & B2B</button>
-            <button class="filter-btn" data-filter="CONSULTING">CONSULTING</button>
-            <button class="filter-btn" data-filter="TRAVEL & LOGISTICS">TRAVEL & LOGISTICS</button>
+          <div class="section-filter-bar" role="tablist" aria-label="Portfolio Category Filters">
+            <button class="filter-btn active" data-filter="ALL" role="tab" aria-selected="true">ALL [06]</button>
+            <button class="filter-btn" data-filter="CREATIVE / SAAS" role="tab" aria-selected="false">CREATIVE / SAAS</button>
+            <button class="filter-btn" data-filter="REAL ESTATE" role="tab" aria-selected="false">REAL ESTATE</button>
+            <button class="filter-btn" data-filter="FINANCE & B2B" role="tab" aria-selected="false">FINANCE & B2B</button>
+            <button class="filter-btn" data-filter="CONSULTING" role="tab" aria-selected="false">CONSULTING</button>
+            <button class="filter-btn" data-filter="TRAVEL & LOGISTICS" role="tab" aria-selected="false">TRAVEL & LOGISTICS</button>
           </div>
         </div>
 
-        <!-- 4-Card Portfolio Grid Matching Reference Screenshot -->
-        <div class="portfolio-grid" id="portfolio-grid">
-          <!-- Populated dynamically via JS / projects data -->
+        <div class="portfolio-grid-wrapper">
+          <div class="portfolio-grid" id="portfolio-grid" role="region" aria-live="polite">
+            <!-- Populated dynamically via JS / projects data -->
+          </div>
         </div>
       </section>
 
