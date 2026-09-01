@@ -1,4 +1,5 @@
 import { studioData, portfolioProjects, servicesData, processSteps, testimonials, experiments } from './data/projects.js';
+import { caseStudiesData } from './data/case-studies.js';
 import { audioFx } from './components/audio-fx.js';
 import { PlaygroundCanvas } from './components/playground-canvas.js';
 
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonials();
   initPlayground();
   initConfigurator();
-  initModal();
+  initCaseStudy();
   initFooterForm();
 });
 
@@ -196,9 +197,10 @@ function initPortfolio() {
         }
       });
 
-      // 4. Click sound telemetry
-      card.addEventListener('click', () => {
-        audioFx.playClick();
+      // 4. Click opens full editorial case study
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        openCaseStudy(project.id);
       });
 
       grid.appendChild(card);
@@ -236,9 +238,9 @@ function initPortfolio() {
   // Case study dossier button listener
   const caseStudyBtn = document.getElementById('view-case-study-btn');
   if (caseStudyBtn) {
-    caseStudyBtn.addEventListener('click', () => {
-      audioFx.playClick();
-      openProjectModal(caseStudyBtn.dataset.projectId || 'thebullseye');
+    caseStudyBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCaseStudy(caseStudyBtn.dataset.projectId || 'thebullseye');
     });
   }
 }
@@ -462,105 +464,312 @@ function initConfigurator() {
 }
 
 /* ==========================================================================
-   9. PROJECT QUICK-VIEW MODAL / DRAWER
+   9. EDITORIAL PROJECT CASE STUDY SYSTEM (12-SECTION DOSSIER)
    ========================================================================== */
-function initModal() {
-  const modal = document.getElementById('project-modal');
-  const closeBtn = document.getElementById('modal-close-btn');
+let currentCaseStudyId = null;
 
-  if (!modal || !closeBtn) return;
+function initCaseStudy() {
+  const overlay = document.getElementById('case-study-overlay');
+  const closeBtn = document.getElementById('cs-close-btn');
 
-  closeBtn.addEventListener('click', () => closeModal());
+  if (!overlay || !closeBtn) return;
 
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
+  closeBtn.addEventListener('click', () => closeCaseStudy());
+
+  // Reading scroll progress tracker
+  overlay.addEventListener('scroll', () => {
+    const scrollProgress = document.getElementById('cs-scroll-progress');
+    if (!scrollProgress) return;
+    const maxScroll = overlay.scrollHeight - overlay.clientHeight;
+    if (maxScroll > 0) {
+      const pct = Math.min(100, Math.max(0, (overlay.scrollTop / maxScroll) * 100));
+      scrollProgress.style.width = `${pct}%`;
     }
   });
 
+  // Global Keyboard Shortcuts
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
+    if (!overlay.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+      closeCaseStudy();
+    } else if (e.key === 'ArrowRight' && currentCaseStudyId) {
+      const current = caseStudiesData[currentCaseStudyId];
+      if (current && current.nextProject) {
+        openCaseStudy(current.nextProject.id);
+      }
     }
   });
+
+  // Handle Hash on Load / Navigation
+  window.addEventListener('hashchange', checkUrlHash);
+  checkUrlHash();
 }
 
-function openProjectModal(projectId) {
-  const project = portfolioProjects.find(p => p.id === projectId);
-  if (!project) return;
+function checkUrlHash() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#case-study/')) {
+    const pId = hash.replace('#case-study/', '');
+    if (caseStudiesData[pId]) {
+      openCaseStudy(pId, false);
+    }
+  }
+}
 
-  const modal = document.getElementById('project-modal');
-  const titleEl = document.getElementById('modal-project-title');
-  const bodyEl = document.getElementById('modal-content-body');
+function openCaseStudy(projectId, updateHash = true) {
+  const data = caseStudiesData[projectId];
+  if (!data) return;
 
-  if (!modal || !titleEl || !bodyEl) return;
+  currentCaseStudyId = projectId;
+  audioFx.playClick();
 
-  titleEl.textContent = `// PROJECT DOSSIER: ${project.title}`;
+  const overlay = document.getElementById('case-study-overlay');
+  const headerTitle = document.getElementById('cs-header-project-name');
+  const liveLinkBtn = document.getElementById('cs-header-live-link');
+  const contentContainer = document.getElementById('case-study-content');
 
-  bodyEl.innerHTML = `
-    <div class="modal-media">
-      <img src="${project.image}" alt="${project.title}">
-    </div>
+  if (!overlay || !contentContainer) return;
 
-    <div class="modal-meta-grid">
-      <div class="modal-meta-cell">
-        <h5>CLIENT</h5>
-        <p>${project.client}</p>
+  if (headerTitle) headerTitle.textContent = data.title;
+  if (liveLinkBtn) {
+    liveLinkBtn.href = data.liveUrl;
+    liveLinkBtn.title = `Visit live ${data.title} website: ${data.displayUrl}`;
+  }
+
+  // Render 12 structured editorial sections
+  contentContainer.innerHTML = renderCaseStudyHtml(data);
+
+  // Wire Next Project button
+  const nextCard = contentContainer.querySelector('.cs-next-card');
+  if (nextCard) {
+    nextCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      const nextId = nextCard.dataset.nextId;
+      if (nextId) {
+        openCaseStudy(nextId);
+      }
+    });
+  }
+
+  // Show overlay & reset scroll
+  overlay.scrollTop = 0;
+  const scrollProgress = document.getElementById('cs-scroll-progress');
+  if (scrollProgress) scrollProgress.style.width = '0%';
+
+  overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+
+  if (updateHash) {
+    history.pushState(null, '', `#case-study/${projectId}`);
+  }
+}
+
+function closeCaseStudy() {
+  const overlay = document.getElementById('case-study-overlay');
+  if (!overlay) return;
+
+  audioFx.playClick();
+  overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  currentCaseStudyId = null;
+
+  if (window.location.hash.startsWith('#case-study/')) {
+    history.pushState(null, '', '#work');
+  }
+}
+
+function renderCaseStudyHtml(data) {
+  return `
+    <!-- 01 — MINIMAL CASE STUDY HERO -->
+    <section class="cs-hero">
+      <div class="cs-hero-top">
+        <span class="cs-hero-number">// ${data.number}</span>
+        <span class="cs-hero-status">[ ${data.meta.status} ]</span>
       </div>
-      <div class="modal-meta-cell">
-        <h5>YEAR</h5>
-        <p>${project.year}</p>
+      <h1 class="cs-hero-title">${data.title}</h1>
+      <div class="cs-hero-category">${data.category}</div>
+      <p class="cs-hero-oneliner">${data.oneLiner}</p>
+
+      <div class="cs-hero-media">
+        <img src="${data.heroImage}" alt="${data.title} Editorial Project Visual" class="cs-hero-img" loading="eager">
       </div>
-      <div class="modal-meta-cell">
-        <h5>ROLE</h5>
-        <p>${project.role}</p>
-      </div>
-      <div class="modal-meta-cell">
-        <h5>LIVE URL</h5>
-        <p><a href="${project.url}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-yellow); text-decoration: underline;">${project.url.replace('https://', '')} ↗</a></p>
-      </div>
-    </div>
 
-    <div>
-      <div class="modal-section-title">// BRIEF & OBJECTIVE</div>
-      <p class="modal-desc-p">${project.description}</p>
-
-      <div class="modal-section-title">// THE CHALLENGE</div>
-      <p class="modal-desc-p">${project.challenge}</p>
-
-      <div class="modal-section-title">// THE ARCHITECTURAL SOLUTION</div>
-      <p class="modal-desc-p">${project.solution}</p>
-
-      <div class="modal-section-title">// KEY DELIVERABLES</div>
-      <ul class="capability-list" style="margin-bottom: 20px;">
-        ${project.deliverables.map(d => `<li class="capability-item">${d}</li>`).join('')}
-      </ul>
-
-      <div class="modal-section-title">// IMPACT & METRICS</div>
-      <p class="modal-desc-p" style="color: var(--accent-yellow); font-family: var(--font-mono); font-weight: bold;">
-        ${project.metrics}
-      </p>
-
-      <div style="margin-top: 24px; border-top: 1px solid var(--border-subtle); padding-top: 20px; display: flex; gap: 14px; flex-wrap: wrap;">
-        <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="btn-brutalist btn-primary" style="flex: 1; min-width: 220px; text-decoration: none; text-align: center;">
-          LAUNCH LIVE WEBSITE ↗
+      <div class="cs-hero-actions">
+        <a href="${data.liveUrl}" target="_blank" rel="noopener noreferrer" class="cs-live-btn" style="padding: 10px 20px; font-size: 0.8rem;">
+          VISIT LIVE WEBSITE ↗
         </a>
       </div>
-    </div>
+    </section>
+
+    <!-- 02 — PROJECT META STRIP -->
+    <section class="cs-meta-strip">
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">CLIENT</div>
+        <div class="cs-meta-value">${data.meta.client}</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">INDUSTRY</div>
+        <div class="cs-meta-value">${data.meta.industry}</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">SERVICES</div>
+        <div class="cs-meta-value">${data.meta.services.join(' // ')}</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">YEAR</div>
+        <div class="cs-meta-value">${data.meta.year}</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">STATUS</div>
+        <div class="cs-meta-value" style="color: var(--accent-yellow); font-weight: 700;">${data.meta.status}</div>
+      </div>
+    </section>
+
+    <!-- 03 — THE CHALLENGE -->
+    <section class="cs-challenge-section">
+      <div class="cs-split-left">
+        <div class="cs-split-tag">// THE PROBLEM</div>
+      </div>
+      <div class="cs-split-right">
+        <p>${data.challenge}</p>
+      </div>
+    </section>
+
+    <!-- 04 — THE APPROACH -->
+    <section class="cs-approach-section">
+      <div class="cs-approach-eyebrow">// DESIGN PHILOSOPHY & ARCHITECTURE</div>
+      <h2 class="cs-approach-headline">${data.approach.headline}</h2>
+      <p class="cs-approach-summary">${data.approach.summary}</p>
+
+      <div class="cs-annotations-grid">
+        ${data.approach.annotations.map(ann => `
+          <div class="cs-annotation-card">
+            <span class="cs-ann-tag">${ann.tag}</span>
+            <h3 class="cs-ann-title">${ann.title}</h3>
+            <p class="cs-ann-desc">${ann.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+
+    <!-- 05 — DESIGN DIRECTION -->
+    <section class="cs-direction-section">
+      <div class="cs-section-header-bar">
+        <h2 class="cs-section-title">DESIGN DIRECTION</h2>
+        <span class="cs-section-badge">// 04 STRUCTURAL PILLARS</span>
+      </div>
+      <div class="cs-direction-grid">
+        ${data.designDirection.map(dir => `
+          <div class="cs-direction-card">
+            <div class="cs-dir-num">${dir.number}</div>
+            <h3 class="cs-dir-title">${dir.title}</h3>
+            <div class="cs-dir-subtitle">${dir.subtitle}</div>
+            <p class="cs-dir-desc">${dir.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+
+    <!-- 06 — FULL-WIDTH VISUAL -->
+    <section class="cs-cinematic-section">
+      <div class="cs-cinematic-frame">
+        <img src="${data.fullWidthVisual.image}" alt="${data.title} Interface Full Width" class="cs-cinematic-img" loading="lazy">
+        <div class="cs-cinematic-meta">
+          <div>${data.fullWidthVisual.caption}</div>
+          <div>${data.fullWidthVisual.telemetry}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — DETAIL SHOTS -->
+    <section class="cs-details-section">
+      <div class="cs-details-grid">
+        ${data.detailShots.map((shot, idx) => `
+          <div class="cs-detail-item ${idx % 2 === 1 ? 'offset-top' : ''}">
+            <div class="cs-detail-media">
+              <img src="${shot.image}" alt="${shot.title}" class="cs-detail-img" loading="lazy">
+            </div>
+            <div class="cs-detail-info">
+              <span class="cs-detail-tag">// ${shot.number} UI DETAIL</span>
+              <h3 class="cs-detail-title">${shot.title}</h3>
+              <p class="cs-detail-desc">${shot.desc}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+
+    <!-- 08 — MOBILE EXPERIENCE -->
+    <section class="cs-mobile-section">
+      <div class="cs-mobile-grid">
+        <div>
+          <div class="cs-mobile-tag">// RESPONSIVE TOUCH ARCHITECTURE</div>
+          <h2 class="cs-mobile-heading">${data.mobileExperience.headline}</h2>
+          <p class="cs-mobile-desc">${data.mobileExperience.desc}</p>
+          <div class="cs-mobile-highlights">
+            ${data.mobileExperience.highlights.map(h => `
+              <div class="cs-highlight-item">
+                <span style="color: var(--accent-yellow);">→</span>
+                <span>${h}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        <div class="cs-mobile-visual">
+          <img src="${data.fullWidthVisual.image}" alt="${data.title} Mobile Responsive Composition" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 — BUILD / TECH STACK -->
+    <section class="cs-build-section">
+      <div class="cs-build-title">BUILT WITH</div>
+      <div class="cs-tech-tags">
+        ${data.techStack.map(tech => `
+          <span class="cs-tech-badge">${tech}</span>
+        `).join('')}
+      </div>
+    </section>
+
+    <!-- 10 — THE RESULT -->
+    <section class="cs-result-section">
+      <div class="cs-result-tag">// THE RESULT</div>
+      <div class="cs-result-statement">${data.result}</div>
+    </section>
+
+    <!-- 11 — LIVE PROJECT CTA -->
+    <section class="cs-live-cta-section">
+      <div class="cs-live-cta-left">
+        <div>SEE IT</div>
+        <div>IN THE WILD →</div>
+        <div class="cs-live-cta-url">${data.displayUrl}</div>
+      </div>
+      <a href="${data.liveUrl}" target="_blank" rel="noopener noreferrer" class="cs-live-cta-btn">
+        <span>VISIT LIVE WEBSITE</span>
+        <span>→</span>
+      </a>
+    </section>
+
+    <!-- 12 — NEXT PROJECT LOOP -->
+    <section class="cs-next-section">
+      <div class="cs-next-card" data-next-id="${data.nextProject.id}">
+        <div class="cs-next-info">
+          <div class="cs-next-tag">NEXT PROJECT // ${data.nextProject.number}</div>
+          <h2 class="cs-next-title">${data.nextProject.title}</h2>
+          <div class="cs-next-cat">${data.nextProject.category}</div>
+          <div class="cs-next-action">
+            <span>VIEW CASE STUDY</span>
+            <span class="cs-next-arrow">→</span>
+          </div>
+        </div>
+        <div class="cs-next-preview">
+          <img src="${data.nextProject.image}" alt="${data.nextProject.title} Preview" class="cs-next-preview-img" loading="lazy">
+        </div>
+      </div>
+    </section>
   `;
-
-  modal.classList.add('active');
-  modal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  const modal = document.getElementById('project-modal');
-  if (!modal) return;
-  audioFx.playClick();
-  modal.classList.remove('active');
-  modal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
 }
 
 /* ==========================================================================

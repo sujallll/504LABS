@@ -463,20 +463,39 @@
   </div>
 
   <!-- ==========================================
-       PROJECT QUICK-VIEW MODAL / DRAWER
+       EDITORIAL PROJECT CASE STUDY EXPERIENCE
        ========================================== -->
-  <div id="project-modal" class="modal-overlay" aria-hidden="true" role="dialog">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div id="modal-project-title" class="modal-header-title">PROJECT DOSSIER</div>
-        <button id="modal-close-btn" class="modal-close-btn">[ESC / CLOSE ✕]</button>
+  <aside id="case-study-overlay" class="case-study-overlay" aria-hidden="true" role="dialog" aria-label="Editorial Case Study Dossier">
+    <!-- Sticky Top Editorial Control Bar -->
+    <header class="cs-sticky-bar">
+      <div class="cs-bar-left">
+        <span class="cs-bar-brand">504LABS</span>
+        <span class="cs-bar-divider">//</span>
+        <span class="cs-bar-label">CASE STUDY:</span>
+        <span id="cs-header-project-name" class="cs-bar-title">THEBULLSEYE</span>
       </div>
 
-      <div class="modal-body" id="modal-content-body">
-        <!-- Injected dynamically -->
+      <!-- Reading Progress Indicator -->
+      <div class="cs-progress-track">
+        <div id="cs-scroll-progress" class="cs-progress-bar"></div>
       </div>
+
+      <div class="cs-bar-right">
+        <a id="cs-header-live-link" href="#" target="_blank" rel="noopener noreferrer" class="cs-live-btn" title="Open live production website">
+          <span>LIVE SITE</span> <span class="arrow">↗</span>
+        </a>
+        <button id="cs-close-btn" class="cs-close-btn" aria-label="Close Case Study and return to Selected Work">
+          <span class="cs-close-label-desktop">[ESC / CLOSE ✕]</span>
+          <span class="cs-close-label-mobile">✕</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Scrollable Case Study Body Container -->
+    <div id="case-study-content" class="case-study-content">
+      <!-- Injected dynamically with 12 structured editorial sections -->
     </div>
-  </div>
+  </aside>
 
   <!-- Scripts -->
   <script type="module" src="/src/main.js"></script>
