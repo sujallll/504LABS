@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>504LABS — Neo-Brutalist Creative Agency & Digital Technology Studio</title>
+  <meta name="description" content="504labs is an independent neo-brutalist creative agency and digital technology studio specializing in high-contrast visual systems, experimental web engineering, and brand architecture.">
+  <meta name="keywords" content="504labs, creative agency, neo-brutalist web design, creative technology, digital studio, brand architecture, webgl, custom development">
+
+  <!-- Google Fonts: Bebas Neue, Syne, Space Grotesk, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+
+  <!-- Blueprint Vertical Grid Guides Overlay -->
+  <div id="blueprint-guides" class="blueprint-guides hidden">
+    <div class="guide-col"></div>
+    <div class="guide-col"></div>
+    <div class="guide-col"></div>
+    <div class="guide-col"></div>
+  </div>
+
+  <div class="site-wrapper">
+
+    <!-- ==========================================
+         STICKY TOP NAVIGATION
+         ========================================== -->
+    <header class="site-header">
+      <nav class="nav-container" aria-label="Main Navigation">
+        <a href="#hero" class="nav-brand" id="nav-brand-logo">
+          504LABS
+          <span class="nav-status-badge">[ONLINE: INDIA AND GLOBALLY]</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="#work" class="nav-link">PORTFOLIO</a></li>
+          <li class="nav-item"><a href="#services" class="nav-link">SERVICES</a></li>
+          <li class="nav-item"><a href="#case-study" class="nav-link">CASE STUDY</a></li>
+          <li class="nav-item"><a href="#process" class="nav-link">PROCESS</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">ABOUT</a></li>
+          <li class="nav-item"><a href="#playground" class="nav-link">PLAYGROUND</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-tools">
+          <button id="grid-toggle-btn" class="tool-btn" title="Toggle Blueprint Grid Lines">
+            <span>GRID</span> <span id="grid-status-text">[OFF]</span>
+          </button>
+          <button id="audio-toggle-btn" class="tool-btn" title="Toggle Industrial Mechanical Audio">
+            <span>SFX</span> <span id="audio-status-text">[OFF]</span>
+          </button>
+          <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+
+      <!-- ==========================================
+           HERO SECTION
+           ========================================== -->
+      <section id="hero" class="hero-section">
+        <div class="hero-meta-bar">
+          <div>LOC: 19.0335° N, 73.0168° E</div>
+          <div>EST. 2024 // INDEPENDENT STUDIO</div>
+        </div>
+
+        <h1 class="hero-title">
+          504LABS: <span class="highlight-underline">THE LAB</span><br>
+          FOR <span class="highlight-underline">DIGITAL CULTURE.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          We shape distinctive brands and digital experiences through strategy, design, technology, and experimentation - built for a culture that never stands still.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#work" class="btn-brutalist btn-primary" id="hero-explore-btn">
+            EXPLORE PROJECTS →
+          </a>
+          <a href="#contact" class="btn-brutalist btn-secondary" id="hero-inquiry-btn">
+            SCHEDULE A CALL →
+          </a>
+        </div>
+
+        <div class="marquee-container" aria-hidden="true">
+          <div class="marquee-content">
+            // BRAND ARCHITECTURE // DIGITAL EXPERIENCES // EXPERIMENTS // CREATIVE CODE // 100% CUSTOM CODE // ZERO SaaS TEMPLATES // 504LABS EST. 2024 // INDIA & GLOBALLY //
+            // BRAND ARCHITECTURE // DIGITAL EXPERIENCES // EXPERIMENTS // CREATIVE CODE // 100% CUSTOM CODE // ZERO SaaS TEMPLATES // 504LABS EST. 2024 // INDIA & GLOBALLY //
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SELECTED WORK / PORTFOLIO
+           ========================================== -->
+      <section id="work" class="work-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">SELECTED WORK</h2>
+          </div>
+          <div class="section-filter-bar">
+            <button class="filter-btn active" data-filter="ALL">ALL [06]</button>
+            <button class="filter-btn" data-filter="CREATIVE / SAAS">CREATIVE / SAAS</button>
+            <button class="filter-btn" data-filter="REAL ESTATE">REAL ESTATE</button>
+            <button class="filter-btn" data-filter="FINANCE & B2B">FINANCE & B2B</button>
+            <button class="filter-btn" data-filter="CONSULTING">CONSULTING</button>
+            <button class="filter-btn" data-filter="TRAVEL & LOGISTICS">TRAVEL & LOGISTICS</button>
+          </div>
+        </div>
+
+        <!-- 4-Card Portfolio Grid Matching Reference Screenshot -->
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Populated dynamically via JS / projects data -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           WHAT WE DO (SERVICES)
+           ========================================== -->
+      <section id="services" class="services-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">WHAT WE DO</h2>
+          </div>
+          <div style="padding: 16px 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: flex; align-items: center;">
+            [CLICK ANY SERVICE ROW TO EXPAND CAPABILITIES]
+          </div>
+        </div>
+
+        <div class="services-list" id="services-list">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           FEATURED CASE STUDY / 001
+           ========================================== -->
+      <section id="case-study" class="case-study-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">FEATURED CASE STUDY / 001</h2>
+          </div>
+          <div style="padding: 16px 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-yellow); display: flex; align-items: center;">
+            PROJECT: VOID [LIVE PRODUCTION]
+          </div>
+        </div>
+
+        <div class="case-study-layout">
+          <div class="case-study-media">
+            <img src="/assets/case_study_void.jpg" alt="Project Void Digital Monolith" class="case-study-img" loading="lazy">
+            <div class="case-study-overlay-badge">CASE STUDY // 001</div>
+          </div>
+
+          <div class="case-study-content">
+            <div>
+              <div class="case-meta">CLIENT: AUREL BIO-SYSTEMS // YEAR: 2026 // ROLE: ART DIRECTION & CODE</div>
+              <h3 class="case-title">PROJECT: VOID MONOLITH</h3>
+              <p class="case-description">
+                An immersive spatial web platform transforming high-throughput biological data telemetry into interactive topological wireframes and generative sonic landscapes.
+              </p>
+
+              <div class="case-matrix">
+                <div class="matrix-box">
+                  <h4>THE CHALLENGE</h4>
+                  <p>Sterile legacy biotech interfaces failed to convey the radical breakthrough computational power of next-gen synthetic gene sequencing.</p>
+                </div>
+                <div class="matrix-box">
+                  <h4>THE ARCHITECTURE</h4>
+                  <p>Custom WebGL shader pipelines, brutalist monospaced typography, and real-time vertex displacement shaders.</p>
+                </div>
+              </div>
+
+              <div class="case-metrics-bar">
+                <div class="metric-item">
+                  <div class="metric-value">+480%</div>
+                  <div class="metric-label">ENGAGEMENT TIME</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">0.21s</div>
+                  <div class="metric-label">GLOBAL TTFB</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">12</div>
+                  <div class="metric-label">DESIGN AWARDS</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn-brutalist btn-primary" id="view-case-study-btn" data-project-id="aurel-brand">
+                VIEW FULL DOSSIER →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           HOW WE WORK (PROCESS)
+           ========================================== -->
+      <section id="process" class="process-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">HOW WE WORK</h2>
+          </div>
+          <div style="padding: 16px 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: flex; align-items: center;">
+            FOUR-PHASE INDUSTRIAL BLUEPRINT
+          </div>
+        </div>
+
+        <div class="process-grid" id="process-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           ABOUT 504LABS & MANIFESTO
+           ========================================== -->
+      <section id="about" class="about-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">ABOUT 504LABS</h2>
+          </div>
+          <div style="padding: 16px 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-yellow); display: flex; align-items: center;">
+            STUDIO MANIFESTO & TELEMETRY
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-left">
+            <h3 class="manifesto-quote">
+              WE DON'T DESIGN FOR THE FEED.<br>
+              <span>WE DESIGN FOR IMPACT.</span>
+            </h3>
+            <p class="about-body">
+              504labs is an independent creative agency working across brand architecture, digital technology, experimental web systems, and culture. We combine ruthless strategic discipline with aggressive visual design and pure engineering to forge digital experiences that are impossible to ignore.
+            </p>
+          </div>
+
+          <div class="about-right">
+            <div class="stats-matrix">
+              <div class="stat-box">
+                <div class="stat-val">84+</div>
+                <div class="stat-lbl">SHIPPED SYSTEMS</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-val">19</div>
+                <div class="stat-lbl">GLOBAL AWARDS</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-val">100%</div>
+                <div class="stat-lbl">CUSTOM CODE</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-val">0.24s</div>
+                <div class="stat-lbl">AVERAGE TTFB</div>
+              </div>
+            </div>
+
+            <div class="about-status-card">
+              <div class="status-line">
+                <span class="status-dot"></span>
+                <span>SYSTEM STATUS: ALL ENGINES OPERATIONAL</span>
+              </div>
+              <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary);">
+                ACCEPTING SELECT COMMISSIONS FOR Q3/Q4 2026. DIRECT COMMISSIONS & STRATEGIC ADVISORY.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           CLIENT TESTIMONIALS
+           ========================================== -->
+      <section id="testimonials" class="testimonials-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">WHAT THEY SAY</h2>
+          </div>
+          <div style="padding: 16px 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); display: flex; align-items: center;">
+            VERIFIED CLIENT CRITIQUES
+          </div>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           PLAYGROUND / EXPERIMENTS
+           ========================================== -->
+      <section id="playground" class="playground-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">PLAYGROUND</h2>
+          </div>
+          <div style="padding: 16px 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-yellow); display: flex; align-items: center;">
+            EXPERIMENTS / SHADERS / THINGS WE PROBABLY SHOULDN'T HAVE BUILT
+          </div>
+        </div>
+
+        <div class="playground-canvas-wrap">
+          <canvas id="playground-canvas"></canvas>
+          <div class="canvas-toolbar">
+            <button class="canvas-mode-btn active" data-mode="ascii">ASCII WAVE</button>
+            <button class="canvas-mode-btn" data-mode="wireframe">WIREFRAME 3D</button>
+            <button class="canvas-mode-btn" data-mode="matrix">MATRIX STREAM</button>
+          </div>
+        </div>
+
+        <div class="experiments-grid" id="experiments-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           LET'S BUILD SOMETHING (CONFIGURATOR)
+           ========================================== -->
+      <section id="contact" class="contact-section">
+        <div class="section-header-bar">
+          <div class="section-title-wrap">
+            <h2 class="section-title">LET'S BUILD SOMETHING</h2>
+          </div>
+          <div style="padding: 16px 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-yellow); display: flex; align-items: center;">
+            INITIATE PROJECT TELEMETRY
+          </div>
+        </div>
+
+        <div class="configurator-layout">
+          <div class="configurator-form-wrap">
+            <form id="project-inquiry-form">
+              <div class="form-group-title">// 01. SELECT REQUIRED CAPABILITIES</div>
+              <div class="checkbox-group">
+                <label class="brutalist-checkbox">
+                  <input type="checkbox" name="services" value="Brand Architecture" checked>
+                  <label>BRAND ARCHITECTURE</label>
+                </label>
+                <label class="brutalist-checkbox">
+                  <input type="checkbox" name="services" value="Digital Experience" checked>
+                  <label>DIGITAL EXPERIENCE</label>
+                </label>
+                <label class="brutalist-checkbox">
+                  <input type="checkbox" name="services" value="Creative Direction">
+                  <label>CREATIVE DIRECTION</label>
+                </label>
+                <label class="brutalist-checkbox">
+                  <input type="checkbox" name="services" value="Creative Technology / Shaders">
+                  <label>CREATIVE TECH / SHADERS</label>
+                </label>
+              </div>
+
+              <div class="form-group-title">// 02. ESTIMATED BUDGET TIER</div>
+              <div class="budget-selector" id="budget-selector">
+                <div class="budget-option" data-budget="$25K - $50K">$25K - $50K</div>
+                <div class="budget-option active" data-budget="$50K - $100K">$50K - $100K</div>
+                <div class="budget-option" data-budget="$100K+">$100K+ / RETAINER</div>
+              </div>
+
+              <div class="form-group-title">// 03. YOUR TELEMETRY</div>
+              <div class="form-inputs">
+                <input type="text" id="client-name" class="brutalist-input" placeholder="YOUR NAME / COMPANY *" required>
+                <input type="email" id="client-email" class="brutalist-input" placeholder="YOUR WORK EMAIL *" required>
+                <textarea id="client-brief" class="brutalist-input brutalist-textarea" placeholder="TELL US ABOUT THE PROJECT / IMPOSSIBLE IDEA..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-brutalist btn-primary" style="width: 100%;">
+                TRANSMIT BRIEF [INITIATE PROJECT] →
+              </button>
+            </form>
+          </div>
+
+          <div class="configurator-sidebar">
+            <div>
+              <div class="form-group-title">// LIVE TELEMETRY TERMINAL</div>
+              <div class="terminal-box" id="terminal-preview">
+                <div class="terminal-header">
+                  <span>504_TERMINAL_SESSION</span>
+                  <span id="terminal-status">LIVE_STREAM</span>
+                </div>
+                <div id="terminal-json-output">
+{
+  "system": "504LABS_DISPATCH",
+  "status": "READY_FOR_INPUT",
+  "budget": "$50K - $100K",
+  "services": ["Brand Architecture", "Digital Experience"],
+  "timestamp": "2026-08-18"
+}
+                </div>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 20px;">
+              <div style="font-family: var(--font-display); font-size: 1.5rem; color: var(--accent-yellow); margin-bottom: 6px;">
+                DIRECT COMMISSIONS
+              </div>
+              <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">
+                HELLO@504LABS.COM<br>
+                ENCRYPTED PGP: 0x504B_AF29_98E4
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER (MATCHING REFERENCE EXACTLY)
+         ========================================== -->
+    <footer class="site-footer">
+      <div class="footer-main-bar">
+        <!-- Column 1: Contact Form matching screenshot -->
+        <div class="footer-col">
+          <div class="footer-col-title">CONTACT</div>
+          <form id="footer-newsletter-form" class="footer-contact-form">
+            <input type="email" class="footer-input" placeholder="Email address" required>
+            <button type="submit" class="footer-btn">CONTACT</button>
+          </form>
+        </div>
+
+        <!-- Column 2: Links matching screenshot -->
+        <div class="footer-col">
+          <div class="footer-col-title">LINKS</div>
+          <ul class="footer-links-list">
+            <li><a href="#work" class="footer-link">PROJECTS</a></li>
+            <li><a href="#about" class="footer-link">STUDIO</a></li>
+            <li><a href="#process" class="footer-link">PROCESS</a></li>
+            <li><a href="#playground" class="footer-link">PLAYGROUND</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Copyright matching screenshot -->
+        <div class="footer-col">
+          <div class="footer-copyright-text">
+            © 2026 504LABS.<br>
+            ALL RIGHTS RESERVED.<br>
+            <span class="text-yellow">BUILT WITH INTENT.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>504LABS // EXPERIMENTAL DIGITAL STUDIO // INDIA & GLOBALLY</div>
+        <div>LATENCY: 12ms // ALL SYSTEMS NOMINAL</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==========================================
+       PROJECT QUICK-VIEW MODAL / DRAWER
+       ========================================== -->
+  <div id="project-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div id="modal-project-title" class="modal-header-title">PROJECT DOSSIER</div>
+        <button id="modal-close-btn" class="modal-close-btn">[ESC / CLOSE ✕]</button>
+      </div>
+
+      <div class="modal-body" id="modal-content-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

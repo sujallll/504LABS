@@ -1,0 +1,49 @@
+/* 504LABS NEO-BRUTALIST DESIGN TOKENS */
+:root {
+  /* Colors */
+  --bg-primary: #050505;
+  --bg-secondary: #0c0c0c;
+  --bg-tertiary: #141414;
+  --bg-card: #080808;
+
+  /* Accent: Fluorescent / Electric Yellow-Green */
+  --accent-yellow: #DFFF00;
+  --accent-yellow-glow: rgba(223, 255, 0, 0.35);
+  --accent-yellow-dim: rgba(223, 255, 0, 0.15);
+  --accent-yellow-dark: #b8d400;
+
+  /* Text colors */
+  --text-primary: #F5F5F5;
+  --text-secondary: #999999;
+  --text-muted: #666666;
+  --text-inverse: #050505;
+
+  /* Borders & Grid */
+  --border-width: 1.5px;
+  --border-color: #DFFF00;
+  --border-subtle: rgba(223, 255, 0, 0.25);
+  --border-dark: #222222;
+  --border-grid: rgba(223, 255, 0, 0.12);
+
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Archivo Narrow', -apple-system, sans-serif;
+  --font-heading: 'Syne', 'Bebas Neue', sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --site-max-width: 1400px;
+  --grid-margin: 32px;
+  --header-height: 64px;
+
+  /* Transitions - Fast, mechanical & deliberate */
+  --trans-fast: 0.12s cubic-bezier(0.2, 0, 0, 1);
+  --trans-medium: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --grid-margin: 16px;
+    --header-height: 56px;
+  }
+}
