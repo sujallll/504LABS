@@ -852,16 +852,50 @@ body {
 }
 
 /* ==========================================================================
+   CONSISTENT SECTION CHAPTER OPENING & HEADER PATTERN
+   ========================================================================== */
+.section-header-bar:not(.contact-header-bar) {
+  padding: 0 36px;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.2vw, 5.2rem);
+  line-height: 0.92;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ==========================================================================
    WHAT WE DO (SERVICES ACCORDION / ROWS)
    ========================================================================== */
 .services-section {
+  border-top: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
+  margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-primary);
+  padding-top: 104px;
+  padding-bottom: 112px;
 }
 
 .services-list {
   display: flex;
   flex-direction: column;
+  border-top: var(--border-width) solid var(--border-color);
 }
 
 .service-row {
@@ -872,7 +906,7 @@ body {
 }
 
 .service-row:last-child {
-  border-bottom: none;
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .service-header {
@@ -1009,7 +1043,7 @@ body {
 }
 
 .service-cta-row:last-child {
-  border-bottom: none;
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .service-cta-header {
@@ -1076,8 +1110,12 @@ body {
    HOW WE WORK (PROCESS)
    ========================================================================== */
 .process-section {
+  border-top: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
-  background-color: var(--bg-primary);
+  margin-top: calc(var(--border-width) * -1);
+  background-color: var(--bg-secondary);
+  padding-top: 104px;
+  padding-bottom: 104px;
 }
 
 .process-grid {
@@ -1085,18 +1123,20 @@ body {
   grid-template-columns: repeat(4, 1fr);
   background-color: var(--border-color);
   gap: var(--border-width);
+  border-top: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .process-card {
-  background-color: var(--bg-primary);
-  padding: 32px 24px;
+  background-color: var(--bg-secondary);
+  padding: 36px 28px;
   display: flex;
   flex-direction: column;
   transition: background-color var(--trans-fast);
 }
 
 .process-card:hover {
-  background-color: var(--bg-secondary);
+  background-color: #E8E7E0;
 }
 
 .process-number {
@@ -1133,13 +1173,19 @@ body {
    ABOUT 504LABS & MANIFESTO
    ========================================================================== */
 .about-section {
+  border-top: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
+  margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-primary);
+  padding-top: 104px;
+  padding-bottom: 104px;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
+  border-top: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .about-left {
@@ -1239,8 +1285,12 @@ body {
    CLIENT TESTIMONIALS
    ========================================================================== */
 .testimonials-section {
+  border-top: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
-  background-color: var(--bg-primary);
+  margin-top: calc(var(--border-width) * -1);
+  background-color: var(--bg-secondary);
+  padding-top: 104px;
+  padding-bottom: 104px;
 }
 
 .testimonials-grid {
@@ -1248,14 +1298,21 @@ body {
   grid-template-columns: repeat(3, 1fr);
   background-color: var(--border-color);
   gap: var(--border-width);
+  border-top: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .testimonial-card {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   padding: 36px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: background-color var(--trans-fast);
+}
+
+.testimonial-card:hover {
+  background-color: #E8E7E0;
 }
 
 .quote-mark {
@@ -1296,8 +1353,12 @@ body {
    PLAYGROUND / EXPERIMENTS
    ========================================================================== */
 .playground-section {
+  border-top: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
+  margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-primary);
+  padding-top: 104px;
+  padding-bottom: 104px;
 }
 
 .playground-canvas-wrap {
@@ -2922,15 +2983,27 @@ body {
     font-size: 0.68rem;
   }
 
-  .section-header-bar {
+  .services-section {
+    padding-top: 64px;
+    padding-bottom: 72px;
+  }
+
+  .process-section,
+  .about-section,
+  .testimonials-section,
+  .playground-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section-header-bar:not(.contact-header-bar) {
+    padding: 0 20px;
+    margin-bottom: 36px;
     flex-direction: column;
   }
 
-  .section-title-wrap {
-    border-right: none;
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 14px 18px;
-    justify-content: space-between;
+  .section-title {
+    font-size: clamp(2.4rem, 8.5vw, 3.6rem);
   }
 
   .section-filter-bar {
