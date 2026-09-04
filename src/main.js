@@ -239,16 +239,6 @@ function initPortfolio() {
   });
 
   renderProjects('ALL');
-
-  // Case study dossier button listener
-  const caseStudyBtn = document.getElementById('view-case-study-btn');
-  if (caseStudyBtn) {
-    caseStudyBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const pId = caseStudyBtn.dataset.projectId || 'void-monolith';
-      openCaseStudy(pId);
-    });
-  }
 }
 
 /* ==========================================================================
