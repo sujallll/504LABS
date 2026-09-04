@@ -1,4 +1,110 @@
 export const caseStudiesData = {
+  "void-monolith": {
+    id: "void-monolith",
+    number: "001",
+    title: "PROJECT: VOID MONOLITH",
+    category: "COMPUTATIONAL BIOTECH / SPATIAL WEB",
+    oneLiner: "An immersive spatial web platform transforming high-throughput biological data telemetry into interactive topological wireframes and generative sonic landscapes.",
+    heroImage: "/assets/case_study_detail_topological.jpg",
+    liveUrl: "#case-study/void-monolith",
+    displayUrl: "voidmonolith.504labs.com",
+    meta: {
+      client: "Aurel Bio-Systems",
+      industry: "Computational Genomics & Synthetic Biology",
+      services: ["Spatial Web Platform", "WebGL Shader Pipelines", "Sonic Architecture", "Editorial System"],
+      year: "2026",
+      status: "RESEARCH & PRODUCTION"
+    },
+    challenge: "Sterile legacy biotech interfaces failed to convey the radical breakthrough computational power of next-gen synthetic gene sequencing. Aurel Bio-Systems required a high-density, authoritative spatial interface to render multi-dimensional genetic topologies with sub-second responsiveness without compromising scientific precision.",
+    approach: {
+      headline: "EDITORIAL ARCHITECTURE MEETS COMPUTATIONAL TOPOLOGY.",
+      summary: "We engineered a custom WebGL shader pipeline, Swiss typographic hierarchy, and generative audio-reactive engine that turns complex genomic sequences into sculptural digital monographs. Researchers and enterprise partners navigate massive dataset nodes with fluid 60fps topological vertex displacement.",
+      annotations: [
+        {
+          tag: "// 01 SHADER PIPELINE",
+          title: "Topological Vertex Displacement",
+          desc: "GPU-accelerated GLSL vertex shaders render dense protein telemetry as dynamic, interactive architectural terrain."
+        },
+        {
+          tag: "// 02 TYPOGRAPHIC RIGOR",
+          title: "Monospaced Precision Hierarchy",
+          desc: "High-contrast editorial display typography paired with rigid monospace coordinate systems for unambiguous scientific reading."
+        },
+        {
+          tag: "// 03 SONIC TELEMETRY",
+          title: "Web Audio Generative Acoustics",
+          desc: "Real-time algorithmic frequency synthesis providing tactile auditory cues as users traverse genetic clusters."
+        }
+      ]
+    },
+    designDirection: [
+      {
+        number: "01",
+        title: "TYPOGRAPHY",
+        subtitle: "EDITORIAL // MONOSPACED DISCIPLINE",
+        desc: "High-contrast condensed display typography anchored by Space Mono telemetry indices for mathematical clarity."
+      },
+      {
+        number: "02",
+        title: "SCULPTURAL FORM",
+        subtitle: "MONOCHROME // ARCHITECTURAL MASS",
+        desc: "Museum monograph aesthetics bathed in soft gallery daylight, celebrating geometric purity without cyberpunk clichés."
+      },
+      {
+        number: "03",
+        title: "LAYOUT",
+        subtitle: "SWISS DRAFTING MATRIX // 0-GAP",
+        desc: "Shared-border blueprint framework with zero decorative drop shadows, treating digital space as an architectural blueprint."
+      },
+      {
+        number: "04",
+        title: "INTERACTION",
+        subtitle: "PHYSICS // REAL-TIME TOPOLOGY",
+        desc: "Interactive cursor-modulated coordinate displacement allowing researchers to explore computational genetic topologies."
+      }
+    ],
+    fullWidthVisual: {
+      image: "/assets/case_study_detail_spectral.jpg",
+      caption: "ACTUAL MONOLITH INTERFACE STUDY — SCULPTURAL GENOMIC TELEMETRY PLATFORM",
+      telemetry: "PIPELINE: WEBGL 2.0 // FRAMERATE: 60FPS // SHADER PASSES: 4 // LATENCY: 0.14s"
+    },
+    detailShots: [
+      {
+        number: "01",
+        title: "TOPOLOGICAL TERRAIN MAPPER",
+        desc: "Interactive multi-node genomic terrain mapping high-throughput gene sequences into tactile 3D relief surfaces.",
+        image: "/assets/case_study_detail_topological.jpg"
+      },
+      {
+        number: "02",
+        title: "TELEMETRIC SPECTRAL ANALYZER",
+        desc: "Real-time frequency telemetry monitor correlating biological sequencing data with synthetic harmonic resonances.",
+        image: "/assets/case_study_detail_spectral.jpg"
+      }
+    ],
+    mobileExperience: {
+      headline: "TOUCH-OPTIMIZED SPATIAL TOPOLOGY.",
+      desc: "Engineered specifically for handheld touch gestures with gyroscopic camera orientation, responsive WebGL shaders, and sub-150ms interaction feedback across modern iOS and Android mobile viewports.",
+      highlights: ["Hardware-accelerated touch physics", "Dynamic LOD vertex decimation", "Sub-180kb initial runtime footprint"]
+    },
+    techStack: [
+      "VITE",
+      "WEBGL 2.0 / GLSL",
+      "VANILLA JAVASCRIPT",
+      "WEB AUDIO API",
+      "CSS CUSTOM PROPERTIES",
+      "CANVAS 2D"
+    ],
+    result: "A pioneering digital benchmark for computational synthetic biology. Aurel Bio-Systems secured global enterprise partnerships and prestigious design awards, validating that high-density scientific complexity can be expressed through calm, refined editorial craftsmanship.",
+    nextProject: {
+      id: "thebullseye",
+      number: "01",
+      title: "THEBULLSEYE",
+      category: "CREATIVE / SAAS / MARKETING",
+      image: "/assets/portfolio-thebullseye.webp"
+    }
+  },
+
   "thebullseye": {
     id: "thebullseye",
     number: "01",
@@ -42,13 +148,13 @@ export const caseStudiesData = {
         number: "01",
         title: "TYPOGRAPHY",
         subtitle: "IMPACT // LEGIBILITY",
-        desc: "High-contrast condensed sans-serif for aggressive hero messaging, balanced with structured monospaced metadata for technical credibility."
+        desc: "High-contrast condensed sans-serif for bold hero messaging, balanced with structured monospaced metadata for technical credibility."
       },
       {
         number: "02",
         title: "COLOUR",
-        subtitle: "EDITORIAL // MONOCHROME + GOLDEN AMBER",
-        desc: "A disciplined warm off-white foundation punctuated by signature 504 Labs architectural golden amber (#E5B83B) accents."
+        subtitle: "EDITORIAL // MONOCHROME + COBALT ACCENT",
+        desc: "A disciplined warm ivory foundation punctuated by signature 504 Labs primary cobalt (#2F4BEB) accents."
       },
       {
         number: "03",
@@ -79,7 +185,7 @@ export const caseStudiesData = {
         number: "02",
         title: "TELEMETRY & CAPABILITIES ENGINE",
         desc: "Dense typographic capability matrix mapping SaaS video strategy to tangible client adoption cycles.",
-        image: "/assets/thebullseye.jpg"
+        image: "/assets/thebullseye_showcase.png"
       }
     ],
     mobileExperience: {
@@ -101,7 +207,7 @@ export const caseStudiesData = {
       number: "02",
       title: "MERAKI SQUARE FOOT LLP",
       category: "REAL ESTATE / PROPERTY",
-      image: "/assets/meraki_property.jpg"
+      image: "/assets/portfolio-meraki.webp"
     }
   },
 
@@ -123,7 +229,7 @@ export const caseStudiesData = {
     },
     challenge: "Traditional real estate portals are cluttered with low-resolution listing cards, invasive popups, and chaotic search filters. Meraki Square Foot LLP needed a digital flagship that reflects the architectural gravity of luxury developments, enabling investors and high-net-worth buyers to explore expansive floor layouts with serene clarity.",
     approach: {
-      headline: "BRUTALIST PRECISION MEETS ARCHITECTURAL ELEGANCE.",
+      headline: "EDITORIAL PRECISION MEETS ARCHITECTURAL ELEGANCE.",
       summary: "We designed a high-density architectural portal inspired by minimalist blueprint drawings and gallery monographs. Expansive photography takes center stage, supported by ultra-fast property indexing and clean telemetry cards that present zoning, square footage, and investment metrics without visual clutter.",
       annotations: [
         {
@@ -153,8 +259,8 @@ export const caseStudiesData = {
       {
         number: "02",
         title: "COLOUR",
-        subtitle: "SLATE // CONCRETE // LIME",
-        desc: "Muted architectural stone palettes accented with sharp electric lime lines that guide eye focus to key floor plan metrics."
+        subtitle: "SLATE // WARM IVORY // ARCHITECTURAL CONCRETE",
+        desc: "Muted architectural stone and warm ivory palettes accented with refined typography and subtle cobalt highlights."
       },
       {
         number: "03",
@@ -170,7 +276,7 @@ export const caseStudiesData = {
       }
     ],
     fullWidthVisual: {
-      image: "/assets/meraki_property.jpg",
+      image: "/assets/meraki_showcase.png",
       caption: "MERAKI SQUARE FOOT LLP — ARCHITECTURAL PROPERTY SHOWCASE & RESIDENTIAL MONOGRAPH",
       telemetry: "PROPERTIES INDEXED: HIGH-VALUATION ASSETS // LATENCY: 14ms"
     },
@@ -179,13 +285,13 @@ export const caseStudiesData = {
         number: "01",
         title: "PROPERTY TELEMETRY MATRIX",
         desc: "Detailed property specification sheets displaying zoning, layout configurations, and structural finishes.",
-        image: "/assets/meraki_property.jpg"
+        image: "/assets/meraki_real.png"
       },
       {
         number: "02",
         title: "INTERACTIVE INQUIRY TERMINAL",
         desc: "Fast, single-step advisory consultation gateway tailored for enterprise real estate investors.",
-        image: "/assets/meraki_property.jpg"
+        image: "/assets/portfolio-meraki.webp"
       }
     ],
     mobileExperience: {
@@ -206,7 +312,7 @@ export const caseStudiesData = {
       number: "03",
       title: "SURETY BOND HUB",
       category: "FINANCE / B2B",
-      image: "/assets/surety_bond.jpg"
+      image: "/assets/portfolio-surety.webp"
     }
   },
 
@@ -229,7 +335,7 @@ export const caseStudiesData = {
     challenge: "Institutional surety bonding in India was plagued by opaque paperwork, complex government compliance requirements, and slow manual underwriting turnaround times. Surety Bond Hub needed a secure, industrial-grade web portal to explain surety solutions for infrastructure, PSU, and government projects while providing contractors with instant eligibility assessments.",
     approach: {
       headline: "FINANCIAL INFRASTRUCTURE BUILT LIKE A VAULT.",
-      summary: "We engineered an authoritative, fintech platform featuring bank-grade visual discipline, instant eligibility telemetry, and clear breakdowns of bid bonds, performance bonds, and advance payment guarantees. The design communicates institutional trust and security without corporate bureaucratic sludge.",
+      summary: "We engineered an authoritative, fintech platform featuring bank-grade visual discipline, instant eligibility telemetry, and clear breakdowns of bid bonds, performance bonds, and advance payment guarantees. The design communicates institutional trust and security without corporate bureaucratic friction.",
       annotations: [
         {
           tag: "// 01 UNDERWRITING",
@@ -258,8 +364,8 @@ export const caseStudiesData = {
       {
         number: "02",
         title: "COLOUR",
-        subtitle: "DEEP NAVY // CHARCOAL // LIME ACCENT",
-        desc: "A secure dark foundation accented with electric lime indicator dots for active system telemetry and verification badges."
+        subtitle: "DEEP NAVY // WARM IVORY // COBALT BLUE",
+        desc: "An authoritative institutional foundation accented with cobalt blue indicators for active system verification and ratings."
       },
       {
         number: "03",
@@ -284,13 +390,13 @@ export const caseStudiesData = {
         number: "01",
         title: "ELIGIBILITY MATRIX",
         desc: "Real-time underwriting diagnostic tool calculating contractor bonding limits.",
-        image: "/assets/surety_bond.jpg"
+        image: "/assets/surety_bond_showcase.png"
       },
       {
         number: "02",
         title: "SECURITY PROTOCOL VIEW",
         desc: "Encrypted submission conduit meeting institutional data security and compliance requirements.",
-        image: "/assets/surety_bond.jpg"
+        image: "/assets/portfolio-surety.webp"
       }
     ],
     mobileExperience: {
@@ -311,7 +417,7 @@ export const caseStudiesData = {
       number: "04",
       title: "THE CPI COACH",
       category: "CONSULTING / PROFESSIONAL SERVICES",
-      image: "/assets/cpi_coach.jpg"
+      image: "/assets/portfolio-cpi.webp"
     }
   },
 
@@ -363,8 +469,8 @@ export const caseStudiesData = {
       {
         number: "02",
         title: "COLOUR",
-        subtitle: "OFF-WHITE // GRAPHITE // CRIMSON & LIME",
-        desc: "Sleek monochromatic foundation with strategic crimson (#FF1A1A) and electric lime indicator pulses for active transformation metrics."
+        subtitle: "WARM IVORY // GRAPHITE // COBALT BLUE",
+        desc: "Sleek monochromatic foundation with warm ivory tones and strategic cobalt indicator pulses for active transformation metrics."
       },
       {
         number: "03",
@@ -389,7 +495,7 @@ export const caseStudiesData = {
         number: "01",
         title: "CYBERSECURITY & GRC MATRIX",
         desc: "Interactive modules covering ISO 27001, SOC 2 Type I & II readiness, and enterprise risk frameworks.",
-        image: "/assets/cpi_coach.jpg"
+        image: "/assets/cpi_coach_showcase.png"
       },
       {
         number: "02",
@@ -416,7 +522,7 @@ export const caseStudiesData = {
       number: "05",
       title: "TRIPSCAPE ADVENTURES",
       category: "TRAVEL / TOURISM",
-      image: "/assets/tripscape.jpg"
+      image: "/assets/portfolio-tripscape.webp"
     }
   },
 
@@ -468,8 +574,8 @@ export const caseStudiesData = {
       {
         number: "02",
         title: "COLOUR",
-        subtitle: "EARTH GRAPHITE // ALPINE SNOW // TOPO LIME",
-        desc: "High-contrast monochrome photography layered with fluorescent lime topographical elevation contour vectors."
+        subtitle: "ALPINE EARTH // WARM IVORY // COBALT BLUE",
+        desc: "High-contrast editorial mountain photography layered with warm ivory backdrops and cobalt blue navigational indicators."
       },
       {
         number: "03",
@@ -494,7 +600,7 @@ export const caseStudiesData = {
         number: "01",
         title: "ALTITUDE TOPOGRAPHY ENGINE",
         desc: "Vector contour overlays illustrating elevation gradients and high-altitude summit ridges.",
-        image: "/assets/tripscape.jpg"
+        image: "/assets/tripscape_showcase.png"
       },
       {
         number: "02",
@@ -521,7 +627,7 @@ export const caseStudiesData = {
       number: "06",
       title: "SHRAVI LOGISTICS",
       category: "LOGISTICS / CORPORATE",
-      image: "/assets/shravi_logistics.jpg"
+      image: "/assets/portfolio-shravi.webp"
     }
   },
 
@@ -573,8 +679,8 @@ export const caseStudiesData = {
       {
         number: "02",
         title: "COLOUR",
-        subtitle: "CONTAINER CHARCOAL // STEEL // RADAR LIME",
-        desc: "Industrial monochrome dark tones contrasted with sharp electric lime vector crosshairs and crane grid lines."
+        subtitle: "CONTAINER CHARCOAL // STEEL // COBALT BLUE",
+        desc: "Industrial monochrome tones contrasted with clean white metadata and refined cobalt blue action accents."
       },
       {
         number: "03",
@@ -590,7 +696,7 @@ export const caseStudiesData = {
       }
     ],
     fullWidthVisual: {
-      image: "/assets/shravi_logistics.jpg",
+      image: "/assets/shravi_real.png",
       caption: "ACTUAL LIVE PLATFORM INTERFACE — SHRAVI LOGISTICS UK FREIGHT & INFRASTRUCTURE PLATFORM",
       telemetry: "WGS84 LAT/LON: 51.52° N, 0.38° E // GRID 12A // AREA J // CRANE 03 ACTIVE"
     },
@@ -599,13 +705,13 @@ export const caseStudiesData = {
         number: "01",
         title: "CRANE & FREIGHT TELEMETRY",
         desc: "High-density industrial grid tracking container payloads and dockside transit metrics.",
-        image: "/assets/shravi_logistics.jpg"
+        image: "/assets/shravi_showcase.png"
       },
       {
         number: "02",
         title: "UK LOGISTICS NETWORK HUB",
         desc: "Interactive multi-hub directory powering vital infrastructure and resilient community growth.",
-        image: "/assets/shravi_logistics.jpg"
+        image: "/assets/portfolio-shravi.webp"
       }
     ],
     mobileExperience: {
@@ -626,7 +732,10 @@ export const caseStudiesData = {
       number: "01",
       title: "THEBULLSEYE",
       category: "CREATIVE / SAAS / MARKETING",
-      image: "/assets/thebullseye.jpg"
+      image: "/assets/portfolio-thebullseye.webp"
     }
   }
 };
+
+// Aliases for seamless linking
+caseStudiesData["aurel-brand"] = caseStudiesData["void-monolith"];

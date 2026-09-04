@@ -1,29 +1,34 @@
 /* 504LABS PREMIUM EDITORIAL DESIGN TOKENS */
 :root {
-  /* Colors */
-  --bg-primary: #F9F9F6;
-  --bg-secondary: #FFFFFF;
-  --bg-tertiary: #F0F0EA;
-  --bg-card: #FFFFFF;
+  /* Surfaces & Backgrounds */
+  --bg-primary: #F7F6F1;     /* warm ivory */
+  --bg-secondary: #EFEFE9;   /* subtle alternating ivory tone */
+  --bg-tertiary: #E6E5DE;    /* light ivory tint */
+  --bg-card: #FFFFFF;        /* crisp exhibition card surface */
 
-  /* Accent: Architectural Warm Golden Studio Yellow (from 504 Labs brand heritage) */
-  --accent-yellow: #E5B83B;
-  --accent-yellow-glow: rgba(229, 184, 59, 0.35);
-  --accent-yellow-dim: rgba(229, 184, 59, 0.15);
-  --accent-yellow-dark: #B88E1C;
+  /* Primary & Secondary Accents */
+  --accent-cobalt: #2F4BEB;  /* primary accent (cobalt) */
+  --accent-butter: #F3D34A;  /* secondary accent (butter) — used sparingly only */
+  --accent-navy: #1A1F3D;    /* deep accent (navy, for hover on black elements) */
 
-  /* Text colors */
-  --text-primary: #111111;
-  --text-secondary: #555555;
-  --text-muted: #888888;
-  --text-inverse: #FFFFFF;
+  /* Legacy aliases pointing cleanly to cobalt system */
+  --accent-yellow: #2F4BEB;
+  --accent-yellow-glow: rgba(47, 75, 235, 0.25);
+  --accent-yellow-dim: rgba(47, 75, 235, 0.08);
+  --accent-yellow-dark: #1A1F3D;
 
-  /* Borders & Grid */
+  /* Typography Colors */
+  --text-primary: #111111;   /* soft black */
+  --text-secondary: #555555; /* neutral secondary */
+  --text-muted: #77746D;     /* muted text */
+  --text-inverse: #F7F6F1;   /* warm ivory inverse */
+
+  /* Borders & Dividers */
   --border-width: 1px;
-  --border-color: rgba(0, 0, 0, 0.1);
-  --border-subtle: rgba(0, 0, 0, 0.05);
-  --border-dark: rgba(0, 0, 0, 0.2);
-  --border-grid: rgba(0, 0, 0, 0.03);
+  --border-color: #D9D8D2;   /* borders / dividers */
+  --border-subtle: #D9D8D2;  /* subtle divider */
+  --border-dark: #111111;
+  --border-grid: rgba(0, 0, 0, 0.04);
 
   /* Typography */
   --font-display: 'Bebas Neue', 'Archivo Narrow', -apple-system, sans-serif;

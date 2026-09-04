@@ -28,6 +28,51 @@ async function test() {
     console.log(`[PASS] Verified ${found.title} (${found.category}) -> ${found.url}`);
   }
 
+  // Verify Contact section updates in index.html
+  const fs = await import('fs');
+  const path = await import('path');
+  const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf-8');
+
+  console.log('[TEST] Checking Contact Section (Calendly + WhatsApp)...');
+
+  if (!html.includes('GET IN TOUCH')) {
+    throw new Error('Expected eyebrow label "GET IN TOUCH" in contact section');
+  }
+  if (!html.includes("LET'S BUILD SOMETHING")) {
+    throw new Error('Missing heading "LET\'S BUILD SOMETHING"');
+  }
+  if (!html.includes('// 01. BOOK A CALL')) {
+    throw new Error('Missing "// 01. BOOK A CALL" label');
+  }
+  if (!html.includes('// SCHEDULE A 30-MIN INTRO CALL')) {
+    throw new Error('Missing "// SCHEDULE A 30-MIN INTRO CALL" label');
+  }
+  if (!html.includes('https://calendly.com/gsujal02/30min')) {
+    throw new Error('Missing Calendly URL link');
+  }
+  if (!html.includes('calendly-inline-widget')) {
+    throw new Error('Missing calendly-inline-widget element');
+  }
+  if (!html.includes('assets.calendly.com/assets/external/widget.js')) {
+    throw new Error('Missing Calendly widget script embed');
+  }
+  if (!html.includes('// 02. MESSAGE US DIRECTLY')) {
+    throw new Error('Missing "// 02. MESSAGE US DIRECTLY" label');
+  }
+  if (!html.includes('https://wa.me/917506829020?text=Hi%20504LABS%2C%20I%27d%20like%20to%20discuss%20a%20project')) {
+    throw new Error('Missing WhatsApp click dispatch URL');
+  }
+  if (!html.includes('MESSAGE ON WHATSAPP')) {
+    throw new Error('Missing "MESSAGE ON WHATSAPP" button text');
+  }
+  if (!html.includes('504L4BS@GMAIL.COM')) {
+    throw new Error('Missing direct email line "504L4BS@GMAIL.COM"');
+  }
+  if (html.includes('id="project-inquiry-form"') || html.includes('id="terminal-preview"')) {
+    throw new Error('Old form or terminal preview was not removed');
+  }
+
+  console.log('[PASS] Contact section verified: Calendly embed, WhatsApp CTA & 504L4BS@GMAIL.COM verified.');
   console.log('[ALL TESTS PASSED SUCCESSFULLY]');
 }
 

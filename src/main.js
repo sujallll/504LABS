@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProcess();
   initTestimonials();
   initPlayground();
-  initConfigurator();
+  initContactSection();
   initCaseStudy();
   initFooterForm();
 });
@@ -245,7 +245,8 @@ function initPortfolio() {
   if (caseStudyBtn) {
     caseStudyBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      openCaseStudy(caseStudyBtn.dataset.projectId || 'thebullseye');
+      const pId = caseStudyBtn.dataset.projectId || 'void-monolith';
+      openCaseStudy(pId);
     });
   }
 }
@@ -391,80 +392,27 @@ function initPlayground() {
 }
 
 /* ==========================================================================
-   8. PROJECT CONFIGURATOR & TERMINAL
+   8. CONTACT & DIRECT DISPATCH
    ========================================================================== */
-function initConfigurator() {
-  const form = document.getElementById('project-inquiry-form');
-  const budgetOptions = document.querySelectorAll('.budget-option');
-  const terminalJson = document.getElementById('terminal-json-output');
-  const terminalStatus = document.getElementById('terminal-status');
+function initContactSection() {
+  document.querySelectorAll('#channel-whatsapp-btn, #channel-gmail-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      audioFx.playClick();
+    });
+  });
 
-  let selectedBudget = '$50K - $100K';
-
-  function updateTerminal(customStatus = 'READY_FOR_INPUT') {
-    if (!terminalJson) return;
-
-    const checkedBoxes = Array.from(document.querySelectorAll('input[name="services"]:checked')).map(el => el.value);
-    const clientName = document.getElementById('client-name')?.value || 'ANONYMOUS_CLIENT';
-    const clientEmail = document.getElementById('client-email')?.value || 'PENDING_INPUT';
-
-    const payload = {
-      system: "504LABS_TELEMETRY",
-      status: customStatus,
-      client: clientName,
-      email: clientEmail,
-      budget_tier: selectedBudget,
-      selected_capabilities: checkedBoxes,
-      timestamp: new Date().toISOString()
+  // Live Studio Telemetry Clock
+  const clockEl = document.getElementById('contact-live-clock');
+  if (clockEl) {
+    const updateClock = () => {
+      const now = new Date();
+      const hrs = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      const secs = String(now.getSeconds()).padStart(2, '0');
+      clockEl.textContent = `${hrs}:${mins}:${secs} IST`;
     };
-
-    terminalJson.textContent = JSON.stringify(payload, null, 2);
-  }
-
-  budgetOptions.forEach(opt => {
-    opt.addEventListener('click', () => {
-      audioFx.playClick();
-      budgetOptions.forEach(b => b.classList.remove('active'));
-      opt.classList.add('active');
-      selectedBudget = opt.dataset.budget;
-      updateTerminal();
-    });
-  });
-
-  const checkboxes = document.querySelectorAll('input[name="services"]');
-  checkboxes.forEach(cb => {
-    cb.addEventListener('change', () => {
-      audioFx.playClick();
-      cb.closest('.brutalist-checkbox')?.classList.toggle('checked', cb.checked);
-      updateTerminal();
-    });
-  });
-
-  document.querySelectorAll('#client-name, #client-email').forEach(inp => {
-    inp.addEventListener('input', () => updateTerminal());
-  });
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      audioFx.playGlitch();
-
-      if (terminalStatus) {
-        terminalStatus.textContent = 'TRANSMITTING_TELEMETRY...';
-        terminalStatus.style.color = 'var(--accent-yellow)';
-      }
-
-      updateTerminal('DISPATCH_ENCRYPTED_OK');
-
-      setTimeout(() => {
-        if (terminalStatus) {
-          terminalStatus.textContent = 'TRANSMISSION_CONFIRMED [SYS_01]';
-        }
-        alert('// 504LABS: BRIEF RECEIVED. A LEAD ARCHITECT WILL RESPOND WITHIN 24 HOURS.');
-        form.reset();
-        updateTerminal('STANDBY');
-      }, 700);
-    });
+    updateClock();
+    setInterval(updateClock, 1000);
   }
 }
 

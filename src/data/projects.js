@@ -135,7 +135,7 @@ export const servicesData = [
     number: "01",
     name: "BRAND ARCHITECTURE",
     tagline: "IDENTITY SYSTEMS // ART DIRECTION // VISUAL LANGUAGE",
-    description: "We build unforgettable visual identities rooted in brutalist precision, high-contrast typography, and uncompromising brand systems. We reject sterile corporate conformity.",
+    description: "We build unforgettable visual identities rooted in editorial precision, high-contrast typography, and uncompromising brand systems. We reject sterile corporate conformity.",
     capabilities: [
       "Visual Identity & Logomarks",
       "Custom Typography & Font Pairing",
@@ -165,7 +165,7 @@ export const servicesData = [
     number: "03",
     name: "CREATIVE DIRECTION",
     tagline: "CAMPAIGNS // CONCEPTS // VISUAL STORYTELLING",
-    description: "Editorial storytelling that cuts through the noise of algorithmically generated sludge. We craft bold cultural narratives, product launches, and abrasive visual campaigns.",
+    description: "Editorial storytelling that cuts through the noise of algorithmic sameness. We craft bold cultural narratives, product launches, and compelling visual campaigns.",
     capabilities: [
       "Campaign Concept & Storyboarding",
       "Art Direction for Photography & 3D",
@@ -195,9 +195,9 @@ export const servicesData = [
     number: "05",
     name: "DIGITAL STRATEGY",
     tagline: "POSITIONING // AUDIENCE // EXPERIENCE ARCHITECTURE",
-    description: "Defiant positioning for founders and creative leaders who want to dominate their niche. We define the strategic blueprint before writing a single line of code.",
+    description: "Strategic positioning for founders and creative leaders who want to define their market. We establish the architectural blueprint before writing a single line of code.",
     capabilities: [
-      "Defiant Market Positioning",
+      "Distinctive Market Positioning",
       "Information Architecture",
       "User Journey & Friction Removal",
       "Performance Benchmarking",
@@ -229,14 +229,14 @@ export const processSteps = [
   {
     number: "04",
     title: "LAUNCH",
-    subtitle: "DEPLOY // OPTIMIZE // DOMINATE",
+    subtitle: "DEPLOY // OPTIMIZE // SCALE",
     description: "Sub-second TTFB optimization, cross-browser stress testing, telemetry analytics integration, and flawless deployment."
   }
 ];
 
 export const testimonials = [
   {
-    quote: "504labs turned a vague idea into a digital experience that felt ten times bigger than the brief. Their refusal to make generic SaaS garbage completely redefined our market presence.",
+    quote: "504labs turned a vague idea into a digital experience that felt ten times bigger than the brief. Their refusal to accept generic agency templates completely redefined our market presence.",
     author: "KAI VOELKER",
     role: "HEAD OF PRODUCT // PROTOCOL ZERO",
     location: "BERLIN"
@@ -248,7 +248,7 @@ export const testimonials = [
     location: "NEW YORK"
   },
   {
-    quote: "Working with 504labs was the first time an agency delivered code that was as razor-sharp and performant as their design mockups. Exceptional brutalist craftsmanship.",
+    quote: "Working with 504labs was the first time an agency delivered code that was as razor-sharp and performant as their design mockups. Exceptional digital craftsmanship.",
     author: "TARO TAKAHASHI",
     role: "CREATIVE DIRECTOR // MONOLITH TOKYO",
     location: "TOKYO"
