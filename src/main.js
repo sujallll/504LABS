@@ -401,6 +401,19 @@ function initContactSection() {
     });
   });
 
+  // Dynamic Calendly embed auto-resize to completely prevent internal scrolling
+  window.addEventListener('message', (e) => {
+    if (e.origin && e.origin.includes('calendly.com') && e.data) {
+      const height = (e.data.payload && e.data.payload.height) || e.data.height;
+      if (height) {
+        const widget = document.querySelector('.calendly-inline-widget');
+        if (widget) {
+          widget.style.height = `${Math.max(700, parseInt(height, 10))}px`;
+        }
+      }
+    }
+  });
+
   // Live Studio Telemetry Clock
   const clockEl = document.getElementById('contact-live-clock');
   if (clockEl) {
