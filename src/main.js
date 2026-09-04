@@ -408,7 +408,7 @@ function initContactSection() {
       if (height) {
         const widget = document.querySelector('.calendly-inline-widget');
         if (widget) {
-          widget.style.height = `${Math.max(700, parseInt(height, 10))}px`;
+          widget.style.height = `${Math.max(580, parseInt(height, 10))}px`;
         }
       }
     }
