@@ -453,6 +453,10 @@ function initContactSection() {
           const widget = document.querySelector('.calendly-inline-widget');
           if (widget) {
             widget.style.height = `${height}px`;
+            const iframe = widget.querySelector('iframe');
+            if (iframe) {
+              iframe.style.height = `${height}px`;
+            }
           }
         }
       }

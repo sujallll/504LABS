@@ -1526,7 +1526,7 @@ body {
 }
 
 .contact-calendly-inner {
-  max-width: 620px;
+  max-width: 520px;
   margin: 0 auto;
   width: 100%;
 }
@@ -1635,6 +1635,8 @@ body {
   border: none;
   overflow: visible;
   width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
   height: auto;
 }
 
@@ -1642,12 +1644,10 @@ body {
   width: 100%;
   min-width: 300px;
   height: auto;
-  min-height: 480px;
 }
 
 .calendly-container .calendly-inline-widget iframe {
   width: 100% !important;
-  height: 100% !important;
   border: none !important;
 }
 
