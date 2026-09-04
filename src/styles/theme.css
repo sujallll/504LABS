@@ -1,10 +1,10 @@
-/* 504LABS NEO-BRUTALIST DESIGN TOKENS */
+/* 504LABS PREMIUM EDITORIAL DESIGN TOKENS */
 :root {
   /* Colors */
-  --bg-primary: #050505;
-  --bg-secondary: #0c0c0c;
-  --bg-tertiary: #141414;
-  --bg-card: #080808;
+  --bg-primary: #F9F9F6;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F0F0EA;
+  --bg-card: #FFFFFF;
 
   /* Accent: Fluorescent / Electric Yellow-Green */
   --accent-yellow: #DFFF00;
@@ -13,22 +13,22 @@
   --accent-yellow-dark: #b8d400;
 
   /* Text colors */
-  --text-primary: #F5F5F5;
-  --text-secondary: #999999;
-  --text-muted: #666666;
-  --text-inverse: #050505;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --text-inverse: #FFFFFF;
 
   /* Borders & Grid */
-  --border-width: 1.5px;
-  --border-color: #DFFF00;
-  --border-subtle: rgba(223, 255, 0, 0.25);
-  --border-dark: #222222;
-  --border-grid: rgba(223, 255, 0, 0.12);
+  --border-width: 1px;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-dark: rgba(0, 0, 0, 0.2);
+  --border-grid: rgba(0, 0, 0, 0.03);
 
   /* Typography */
   --font-display: 'Bebas Neue', 'Archivo Narrow', -apple-system, sans-serif;
   --font-heading: 'Syne', 'Bebas Neue', sans-serif;
-  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Space Mono', 'JetBrains Mono', 'Courier New', monospace;
 
   /* Layout */
