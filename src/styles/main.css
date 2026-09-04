@@ -243,7 +243,7 @@ body {
    ========================================================================== */
 .hero-section {
   position: relative;
-  padding: 48px 32px 40px;
+  padding: 48px 32px 16px;
   border-bottom: var(--border-width) solid var(--border-color);
   background-color: var(--bg-primary);
 }
@@ -386,7 +386,7 @@ body {
   justify-content: space-between;
   align-items: flex-end;
   gap: 32px;
-  padding: 40px 32px 36px;
+  padding: 32px 32px 24px;
   border-bottom: var(--border-width) solid var(--border-color);
 }
 
@@ -888,8 +888,8 @@ body {
   border-bottom: var(--border-width) solid var(--border-color);
   margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-primary);
-  padding-top: 104px;
-  padding-bottom: 112px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .services-list {
@@ -1114,8 +1114,8 @@ body {
   border-bottom: var(--border-width) solid var(--border-color);
   margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-secondary);
-  padding-top: 104px;
-  padding-bottom: 104px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .process-grid {
@@ -1177,8 +1177,8 @@ body {
   border-bottom: var(--border-width) solid var(--border-color);
   margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-primary);
-  padding-top: 104px;
-  padding-bottom: 104px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .about-grid {
@@ -1289,8 +1289,8 @@ body {
   border-bottom: var(--border-width) solid var(--border-color);
   margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-secondary);
-  padding-top: 104px;
-  padding-bottom: 104px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .testimonials-grid {
@@ -1357,8 +1357,8 @@ body {
   border-bottom: var(--border-width) solid var(--border-color);
   margin-top: calc(var(--border-width) * -1);
   background-color: var(--bg-primary);
-  padding-top: 104px;
-  padding-bottom: 104px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .playground-canvas-wrap {
@@ -1587,7 +1587,7 @@ body {
 }
 
 .contact-calendly-inner {
-  max-width: 520px;
+  max-width: 1000px;
   margin: 0 auto;
   width: 100%;
 }
@@ -1696,7 +1696,7 @@ body {
   border: none;
   overflow: visible;
   width: 100%;
-  max-width: 520px;
+  max-width: 1000px;
   margin: 0 auto;
   height: auto;
 }
@@ -1832,7 +1832,7 @@ body {
 }
 
 .footer-col {
-  padding: 24px 28px;
+  padding: 16px 28px 24px;
   border-right: var(--border-width) solid var(--border-color);
 }
 
@@ -2094,7 +2094,7 @@ body {
 
 /* 01 — HERO */
 .cs-hero {
-  padding: 56px 36px 44px;
+  padding: 40px 36px 32px;
   border-bottom: var(--border-width) solid var(--border-color);
   background: var(--bg-primary);
 }
@@ -2214,7 +2214,7 @@ body {
 }
 
 .cs-split-left {
-  padding: 48px 32px;
+  padding: 40px 32px;
   border-right: var(--border-width) solid var(--border-color);
   background: var(--bg-secondary);
 }
@@ -2230,7 +2230,7 @@ body {
 }
 
 .cs-split-right {
-  padding: 56px 44px;
+  padding: 40px 44px;
   font-family: var(--font-body);
   font-size: clamp(1.15rem, 1.6vw, 1.4rem);
   line-height: 1.65;
@@ -2239,7 +2239,7 @@ body {
 
 /* 04 — THE APPROACH */
 .cs-approach-section {
-  padding: 64px 40px;
+  padding: 48px 40px;
   border-bottom: var(--border-width) solid var(--border-color);
   background: var(--bg-primary);
 }
