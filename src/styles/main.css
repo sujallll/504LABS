@@ -1518,7 +1518,7 @@ body {
    ========================================================================== */
 .contact-block-calendly {
   width: 100%;
-  padding: 16px 20px 24px;
+  padding: 12px 20px 16px;
   background-color: var(--bg-primary);
   position: relative;
   z-index: 1;
@@ -1526,13 +1526,13 @@ body {
 }
 
 .contact-calendly-inner {
-  max-width: 640px;
+  max-width: 620px;
   margin: 0 auto;
   width: 100%;
 }
 
 .contact-panel-kicker {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .form-group-title {
@@ -1570,7 +1570,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-bottom: 1px solid var(--border-color);
   background-color: rgba(255, 255, 255, 0.4);
   font-family: var(--font-mono);
@@ -1612,7 +1612,7 @@ body {
   background-color: var(--bg-primary);
   overflow: hidden;
   white-space: nowrap;
-  padding: 4px 0;
+  padding: 3px 0;
 }
 
 .calendly-marquee-track {
@@ -1635,13 +1635,14 @@ body {
   border: none;
   overflow: visible;
   width: 100%;
+  height: auto;
 }
 
 .calendly-container .calendly-inline-widget {
   width: 100%;
   min-width: 300px;
-  min-height: 580px;
-  height: 620px;
+  height: auto;
+  min-height: 480px;
 }
 
 .calendly-container .calendly-inline-widget iframe {
@@ -1658,7 +1659,6 @@ body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   width: 100%;
-  border-top: var(--border-width) solid var(--border-color);
   background-color: var(--bg-primary);
   overflow: hidden;
   z-index: 1;

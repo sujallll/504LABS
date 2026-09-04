@@ -443,14 +443,17 @@ function initContactSection() {
     });
   });
 
-  // Dynamic Calendly embed auto-resize to completely prevent internal scrolling
+  // Dynamic Calendly embed auto-resize to fit content closely without dead space
   window.addEventListener('message', (e) => {
     if (e.origin && e.origin.includes('calendly.com') && e.data) {
-      const height = (e.data.payload && e.data.payload.height) || e.data.height;
-      if (height) {
-        const widget = document.querySelector('.calendly-inline-widget');
-        if (widget) {
-          widget.style.height = `${Math.max(580, parseInt(height, 10))}px`;
+      const rawHeight = (e.data.payload && e.data.payload.height) || e.data.height;
+      if (rawHeight) {
+        const height = parseInt(rawHeight, 10);
+        if (!isNaN(height) && height > 0) {
+          const widget = document.querySelector('.calendly-inline-widget');
+          if (widget) {
+            widget.style.height = `${height}px`;
+          }
         }
       }
     }
