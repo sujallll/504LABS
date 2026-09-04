@@ -5,7 +5,7 @@ export const caseStudiesData = {
     title: "THEBULLSEYE",
     category: "CREATIVE / SAAS / MARKETING",
     oneLiner: "Strategy-first digital experience and high-velocity creative architecture for a SaaS video & design studio.",
-    heroImage: "/assets/thebullseye.jpg",
+    heroImage: "/assets/portfolio-thebullseye.webp",
     liveUrl: "https://thebullseye.in/",
     displayUrl: "thebullseye.in",
     meta: {
@@ -47,8 +47,8 @@ export const caseStudiesData = {
       {
         number: "02",
         title: "COLOUR",
-        subtitle: "HIGH CONTRAST // MONOCHROME + LIME",
-        desc: "A disciplined deep charcoal foundation (#050505) allowing full-color video case studies to explode, punctuated by electric lime (#DFFF00) telemetry accents."
+        subtitle: "EDITORIAL // MONOCHROME + GOLDEN AMBER",
+        desc: "A disciplined warm off-white foundation punctuated by signature 504 Labs architectural golden amber (#E5B83B) accents."
       },
       {
         number: "03",
@@ -111,7 +111,7 @@ export const caseStudiesData = {
     title: "MERAKI SQUARE FOOT LLP",
     category: "REAL ESTATE / PROPERTY",
     oneLiner: "Architectural digital showcase and luxury property advisory portal for high-value real estate assets.",
-    heroImage: "/assets/meraki_property.jpg",
+    heroImage: "/assets/portfolio-meraki.webp",
     liveUrl: "https://www.merakisquarefootsllp.co.in/",
     displayUrl: "merakisquarefootsllp.co.in",
     meta: {
@@ -216,7 +216,7 @@ export const caseStudiesData = {
     title: "SURETY BOND HUB",
     category: "FINANCE / B2B",
     oneLiner: "Fintech infrastructure and institutional risk underwriting portal for infrastructure & EPC guarantees.",
-    heroImage: "/assets/surety_bond.jpg",
+    heroImage: "/assets/portfolio-surety.webp",
     liveUrl: "https://suretybondhub.in/",
     displayUrl: "suretybondhub.in",
     meta: {
@@ -321,7 +321,7 @@ export const caseStudiesData = {
     title: "THE CPI COACH",
     category: "CONSULTING / PROFESSIONAL SERVICES",
     oneLiner: "Executive consulting platform for business excellence, corporate governance, cybersecurity & GRC transformation.",
-    heroImage: "/assets/cpi_coach.jpg",
+    heroImage: "/assets/portfolio-cpi.webp",
     liveUrl: "https://the-cpi-coach.vercel.app/",
     displayUrl: "the-cpi-coach.vercel.app",
     meta: {
@@ -426,7 +426,7 @@ export const caseStudiesData = {
     title: "TRIPSCAPE ADVENTURES",
     category: "TRAVEL / TOURISM",
     oneLiner: "Immersive experiential adventure travel portal and expedition booking engine for curated group journeys across India.",
-    heroImage: "/assets/tripscape.jpg",
+    heroImage: "/assets/portfolio-tripscape.webp",
     liveUrl: "https://www.tripscapeadventures.in/",
     displayUrl: "tripscapeadventures.in",
     meta: {
@@ -531,7 +531,7 @@ export const caseStudiesData = {
     title: "SHRAVI LOGISTICS",
     category: "LOGISTICS / CORPORATE",
     oneLiner: "High-density UK freight telemetry interface and supply chain corporate infrastructure platform.",
-    heroImage: "/assets/shravi_logistics.jpg",
+    heroImage: "/assets/portfolio-shravi.webp",
     liveUrl: "https://www.shravilogistics.com/",
     displayUrl: "shravilogistics.com",
     meta: {

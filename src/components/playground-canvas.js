@@ -121,11 +121,11 @@ export class PlaygroundCanvas {
         const char = this.charset[charIdx];
 
         if (dist < 90) {
-          this.ctx.fillStyle = '#DFFF00';
+          this.ctx.fillStyle = '#E5B83B';
         } else if (normalized > 0.65) {
           this.ctx.fillStyle = '#FFFFFF';
         } else if (normalized > 0.35) {
-          this.ctx.fillStyle = 'rgba(223, 255, 0, 0.45)';
+          this.ctx.fillStyle = 'rgba(229, 184, 59, 0.45)';
         } else {
           this.ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
         }
@@ -175,7 +175,7 @@ export class PlaygroundCanvas {
         if (i === 0) this.ctx.moveTo(p.x, p.y);
         else this.ctx.lineTo(p.x, p.y);
       }
-      this.ctx.strokeStyle = (j % 2 === 0) ? 'rgba(223, 255, 0, 0.75)' : 'rgba(255, 255, 255, 0.25)';
+      this.ctx.strokeStyle = (j % 2 === 0) ? 'rgba(229, 184, 59, 0.75)' : 'rgba(255, 255, 255, 0.25)';
       this.ctx.stroke();
     }
 
@@ -187,7 +187,7 @@ export class PlaygroundCanvas {
         if (j === 0) this.ctx.moveTo(p.x, p.y);
         else this.ctx.lineTo(p.x, p.y);
       }
-      this.ctx.strokeStyle = (i % 3 === 0) ? 'rgba(223, 255, 0, 0.5)' : 'rgba(255, 255, 255, 0.15)';
+      this.ctx.strokeStyle = (i % 3 === 0) ? 'rgba(229, 184, 59, 0.5)' : 'rgba(255, 255, 255, 0.15)';
       this.ctx.stroke();
     }
 
@@ -195,7 +195,7 @@ export class PlaygroundCanvas {
     for (let j = 0; j < rows; j += 2) {
       for (let i = 0; i < cols; i += 2) {
         const p = points[j][i];
-        this.ctx.fillStyle = '#DFFF00';
+        this.ctx.fillStyle = '#E5B83B';
         this.ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
       }
     }
@@ -222,10 +222,10 @@ export class PlaygroundCanvas {
         if (j === 0) {
           this.ctx.fillStyle = '#FFFFFF';
         } else if (dist < 80) {
-          this.ctx.fillStyle = '#DFFF00';
+          this.ctx.fillStyle = '#E5B83B';
         } else {
           const alpha = 1 - (j / rows);
-          this.ctx.fillStyle = `rgba(223, 255, 0, ${alpha * 0.6})`;
+          this.ctx.fillStyle = `rgba(229, 184, 59, ${alpha * 0.6})`;
         }
 
         this.ctx.fillText(char, x, y);
@@ -235,7 +235,7 @@ export class PlaygroundCanvas {
 
   renderHUD(w, h) {
     this.ctx.font = '10px "Space Mono", monospace';
-    this.ctx.fillStyle = 'rgba(223, 255, 0, 0.8)';
+    this.ctx.fillStyle = 'rgba(229, 184, 59, 0.8)';
     this.ctx.textAlign = 'left';
     this.ctx.fillText(`SYS.MODE // ${this.mode.toUpperCase()}`, 16, 22);
 
@@ -246,7 +246,7 @@ export class PlaygroundCanvas {
     this.ctx.fillText(coords, w - 16, 22);
 
     // Crosshair corners
-    this.ctx.strokeStyle = '#DFFF00';
+    this.ctx.strokeStyle = '#E5B83B';
     this.ctx.lineWidth = 1;
 
     const size = 8;

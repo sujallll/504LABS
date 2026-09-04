@@ -6,11 +6,11 @@
   --bg-tertiary: #F0F0EA;
   --bg-card: #FFFFFF;
 
-  /* Accent: Fluorescent / Electric Yellow-Green */
-  --accent-yellow: #DFFF00;
-  --accent-yellow-glow: rgba(223, 255, 0, 0.35);
-  --accent-yellow-dim: rgba(223, 255, 0, 0.15);
-  --accent-yellow-dark: #b8d400;
+  /* Accent: Architectural Warm Golden Studio Yellow (from 504 Labs brand heritage) */
+  --accent-yellow: #E5B83B;
+  --accent-yellow-glow: rgba(229, 184, 59, 0.35);
+  --accent-yellow-dim: rgba(229, 184, 59, 0.15);
+  --accent-yellow-dark: #B88E1C;
 
   /* Text colors */
   --text-primary: #111111;

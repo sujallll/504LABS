@@ -140,15 +140,16 @@ function initPortfolio() {
       const loadingAttr = index < 3 ? 'eager' : 'lazy';
 
       card.innerHTML = `
-        <div class="card-media">
+        <div class="card-media" data-style="${project.visualStyle || 'editorial'}">
           <div class="card-img-wrapper">
-            <img src="${project.image}" alt="${project.title} live interface preview" class="card-img" loading="${loadingAttr}">
+            <img src="${project.image}" alt="${project.title} live interface presentation" class="card-img" loading="${loadingAttr}">
           </div>
           <span class="card-tag" data-num="${project.number}">// ${project.number}</span>
         </div>
         <div class="card-body">
           <h3 class="card-title">${project.title}</h3>
           <div class="card-category">${project.subtitle}</div>
+          <p class="card-desc">${project.shortDesc || project.description}</p>
           <div class="card-action">
             <span class="cta-label">VIEW PROJECT</span>
             <span class="arrow" aria-hidden="true">→</span>
@@ -160,20 +161,20 @@ function initPortfolio() {
       const tagEl = card.querySelector('.card-tag');
       const imgEl = card.querySelector('.card-img');
 
-      // 1. Mouse move parallax pan on image
+      // 1. Mouse move subtle frame pan on image
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const normX = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
         const normY = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
 
-        const panX = Math.round(normX * 8); // max 8px shift
-        const panY = Math.round(normY * 8); // max 8px shift
+        const panX = Math.round(normX * 6); // subtle 6px shift
+        const panY = Math.round(normY * 6); // subtle 6px shift
 
         card.style.setProperty('--pan-x', `${panX}px`);
         card.style.setProperty('--pan-y', `${panY}px`);
       });
 
-      // 2. Mouse enter: transform number to // OPEN ↗ & handle editorial focus
+      // 2. Mouse enter: tag update & focus state
       card.addEventListener('mouseenter', () => {
         if (tagEl) {
           tagEl.textContent = '// OPEN ↗';
@@ -182,7 +183,7 @@ function initPortfolio() {
         card.classList.add('is-active');
       });
 
-      // 3. Mouse leave: reset tag & parallax
+      // 3. Mouse leave: reset tag & pan
       card.addEventListener('mouseleave', () => {
         if (tagEl) {
           tagEl.textContent = `// ${project.number}`;
@@ -197,10 +198,14 @@ function initPortfolio() {
         }
       });
 
-      // 4. Click opens full editorial case study
+      // 4. Click opens full editorial case study with subtle scale transition
       card.addEventListener('click', (e) => {
         e.preventDefault();
-        openCaseStudy(project.id);
+        card.classList.add('is-expanding');
+        setTimeout(() => {
+          openCaseStudy(project.id);
+          card.classList.remove('is-expanding');
+        }, 120);
       });
 
       grid.appendChild(card);
@@ -446,7 +451,7 @@ function initConfigurator() {
 
       if (terminalStatus) {
         terminalStatus.textContent = 'TRANSMITTING_TELEMETRY...';
-        terminalStatus.style.color = '#DFFF00';
+        terminalStatus.style.color = 'var(--accent-yellow)';
       }
 
       updateTerminal('DISPATCH_ENCRYPTED_OK');
