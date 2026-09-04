@@ -73,6 +73,38 @@ async function test() {
   }
 
   console.log('[PASS] Contact section verified: Calendly embed, WhatsApp CTA & 504L4BS@GMAIL.COM verified.');
+
+  console.log('[TEST] Checking Mid-Page CTA #1 and CTA #2...');
+  // CTA #1 verification
+  if (!html.includes('id="cta-portfolio-band"')) {
+    throw new Error('Missing CTA #1 container id="cta-portfolio-band"');
+  }
+  if (!html.includes('// 05. START HERE')) {
+    throw new Error('Missing CTA #1 tag "// 05. START HERE"');
+  }
+  if (!html.includes('LIKED WHAT YOU SAW?') || !html.includes("LET'S BUILD") || !html.includes('class="cta-cobalt-word">YOURS.</span>')) {
+    throw new Error('Missing or incorrect CTA #1 headline text');
+  }
+  if (!html.includes('START A PROJECT')) {
+    throw new Error('Missing CTA #1 button "START A PROJECT"');
+  }
+  const workPos = html.indexOf('id="work"');
+  const cta1Pos = html.indexOf('id="cta-portfolio-band"');
+  const servicesPos = html.indexOf('id="services"');
+  if (!(workPos < cta1Pos && cta1Pos < servicesPos)) {
+    throw new Error('CTA #1 is not positioned strictly between #work and #services');
+  }
+
+  // CTA #2 verification in main.js
+  const mainJs = fs.readFileSync(path.resolve(__dirname, '../src/main.js'), 'utf-8');
+  if (!mainJs.includes('06') || !mainJs.includes('NOT SURE WHICH ONE YOU NEED?') || !mainJs.includes('TALK TO US // NO OBLIGATION')) {
+    throw new Error('Missing CTA #2 (Row 06) in src/main.js');
+  }
+  if (!mainJs.includes('service-cta-row') || !mainJs.includes('service-cta-arrow')) {
+    throw new Error('Missing CTA #2 classes in src/main.js');
+  }
+
+  console.log('[PASS] Verified CTA #1 (Editorial diagonal pause) and CTA #2 (Inline service row 06).');
   console.log('[ALL TESTS PASSED SUCCESSFULLY]');
 }
 

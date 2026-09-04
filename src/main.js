@@ -45,6 +45,21 @@ function initNavigation() {
     });
   }
 
+  // CTA #1: Start a project button smooth scroll
+  const ctaStartProjectBtn = document.getElementById('cta-start-project-btn');
+  if (ctaStartProjectBtn) {
+    ctaStartProjectBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      audioFx.playClick();
+      const contactEl = document.getElementById('contact');
+      if (contactEl) {
+        contactEl.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.hash = 'contact';
+      }
+    });
+  }
+
   // Active section spy on scroll
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
@@ -289,6 +304,43 @@ function initServices() {
 
     list.appendChild(row);
   });
+
+  // CTA #2: Inline strip CTA row 06 (tucked into service list rhythm)
+  const ctaRow = document.createElement('div');
+  ctaRow.className = 'service-row service-cta-row';
+  ctaRow.id = 'service-cta-row';
+  ctaRow.setAttribute('role', 'button');
+  ctaRow.setAttribute('tabindex', '0');
+  ctaRow.setAttribute('aria-label', 'Not sure which one you need? Talk to us, no obligation.');
+
+  ctaRow.innerHTML = `
+    <div class="service-header service-cta-header">
+      <div class="service-num">06</div>
+      <div class="service-name service-cta-name">NOT SURE WHICH ONE YOU NEED?</div>
+      <div class="service-tagline service-cta-tagline">TALK TO US // NO OBLIGATION</div>
+      <div class="service-cta-arrow" aria-hidden="true">→</div>
+    </div>
+  `;
+
+  const scrollToContact = (e) => {
+    e.preventDefault();
+    audioFx.playClick();
+    const contactEl = document.getElementById('contact');
+    if (contactEl) {
+      contactEl.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.hash = 'contact';
+    }
+  };
+
+  ctaRow.addEventListener('click', scrollToContact);
+  ctaRow.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      scrollToContact(e);
+    }
+  });
+
+  list.appendChild(ctaRow);
 }
 
 /* ==========================================================================

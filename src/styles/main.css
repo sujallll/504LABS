@@ -745,6 +745,113 @@ body {
 }
 
 /* ==========================================================================
+   MID-PAGE CTA #1: OVERSIZED DIAGONAL-CUT EDITORIAL PAUSE
+   ========================================================================== */
+.cta-band-diagonal {
+  position: relative;
+  background-color: var(--bg-primary);
+  border-bottom: var(--border-width) solid var(--border-color);
+  padding: 88px 36px 96px;
+  overflow: hidden;
+}
+
+/* Subtle diagonal-cut divider / torn poster corner separating from portfolio */
+.cta-diagonal-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  background-color: var(--text-primary);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cta-diagonal-slice-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--text-primary);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 64px) 3px, 180px 10px, 0 3px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cta-diagonal-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.cta-diagonal-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cobalt);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.cta-diagonal-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 36px;
+  max-width: 1000px;
+}
+
+.cta-diagonal-headline .cta-cobalt-word {
+  color: var(--accent-cobalt);
+}
+
+.cta-diagonal-action {
+  display: flex;
+  align-items: center;
+}
+
+.cta-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 18px 42px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--text-primary);
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.cta-pill-btn .cta-pill-arrow {
+  display: inline-block;
+  font-size: 1.15rem;
+  transition: transform 180ms ease;
+}
+
+.cta-pill-btn:hover {
+  background-color: var(--accent-cobalt);
+  border-color: var(--accent-cobalt);
+  color: #FFFFFF;
+}
+
+.cta-pill-btn:hover .cta-pill-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
    WHAT WE DO (SERVICES ACCORDION / ROWS)
    ========================================================================== */
 .services-section {
@@ -888,6 +995,81 @@ body {
 .service-row:hover .service-desc,
 .service-row:hover .service-tagline {
   color: var(--text-primary);
+}
+
+/* ==========================================================================
+   MID-PAGE CTA #2: INLINE STRIP SERVICE ROW 06
+   ========================================================================== */
+.service-cta-row {
+  cursor: pointer;
+  background-color: var(--bg-primary);
+  border-bottom: var(--border-width) solid var(--border-color);
+  transition: background-color 180ms ease;
+  position: relative;
+}
+
+.service-cta-row:last-child {
+  border-bottom: none;
+}
+
+.service-cta-header {
+  display: grid;
+  grid-template-columns: 100px 1.6fr 1.4fr 60px;
+  align-items: center;
+  padding: 24px 28px;
+  gap: 16px;
+  width: 100%;
+}
+
+.service-cta-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.1;
+  transition: color 180ms ease;
+}
+
+.service-cta-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 180ms ease;
+}
+
+.service-cta-arrow {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  color: var(--accent-cobalt);
+  text-align: right;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Hover state: subtle cobalt tint, revealing arrow */
+.service-cta-row:hover {
+  background-color: rgba(47, 75, 235, 0.06);
+}
+
+.service-cta-row:hover .service-cta-name {
+  color: var(--text-primary);
+}
+
+.service-cta-row:hover .service-cta-tagline {
+  color: var(--text-primary);
+}
+
+.service-cta-row:hover .service-cta-arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ==========================================================================
@@ -2785,6 +2967,40 @@ body {
 
   .service-tagline {
     display: none;
+  }
+
+  .service-cta-header {
+    grid-template-columns: 48px 1fr 32px;
+    padding: 20px 16px;
+    gap: 12px;
+  }
+
+  .service-cta-name {
+    font-size: 1.15rem;
+  }
+
+  .service-cta-row .service-cta-tagline {
+    display: block;
+    grid-column: 2 / -1;
+    font-size: 0.68rem;
+    margin-top: 2px;
+    color: var(--accent-cobalt);
+  }
+
+  .cta-band-diagonal {
+    padding: 56px 20px 64px;
+  }
+
+  .cta-diagonal-headline {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 28px;
+  }
+
+  .cta-pill-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 28px;
+    font-size: 0.85rem;
   }
 
   .service-row.open .service-details {
