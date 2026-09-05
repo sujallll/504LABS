@@ -50,11 +50,23 @@ async function test() {
   if (!html.includes('https://calendly.com/gsujal02/30min')) {
     throw new Error('Missing Calendly URL link');
   }
-  if (!html.includes('calendly-inline-widget')) {
-    throw new Error('Missing calendly-inline-widget element');
+  if (html.includes('calendly-inline-widget')) {
+    throw new Error('Old calendly-inline-widget element should be completely removed in favor of popup trigger');
+  }
+  if (!html.includes('Calendly.initPopupWidget')) {
+    throw new Error('Missing Calendly.initPopupWidget trigger');
+  }
+  if (!html.includes('assets.calendly.com/assets/external/widget.css')) {
+    throw new Error('Missing Calendly widget.css stylesheet');
   }
   if (!html.includes('assets.calendly.com/assets/external/widget.js')) {
     throw new Error('Missing Calendly widget script embed');
+  }
+  if (!html.includes('OPEN CALENDAR')) {
+    throw new Error('Missing "OPEN CALENDAR" button in Calendly panel');
+  }
+  if (!html.includes('AVAILABLE THIS WEEK')) {
+    throw new Error('Missing "AVAILABLE THIS WEEK" availability indicator in Calendly panel');
   }
   if (!html.includes('// 02. MESSAGE US DIRECTLY')) {
     throw new Error('Missing "// 02. MESSAGE US DIRECTLY" label');
@@ -72,7 +84,7 @@ async function test() {
     throw new Error('Old form or terminal preview was not removed');
   }
 
-  console.log('[PASS] Contact section verified: Calendly embed, WhatsApp CTA & 504L4BS@GMAIL.COM verified.');
+  console.log('[PASS] Contact section verified: 3-channel layout (Calendly popup trigger, WhatsApp, Gmail) verified.');
 
   console.log('[TEST] Checking Mid-Page CTA #1 and CTA #2...');
   // CTA #1 verification

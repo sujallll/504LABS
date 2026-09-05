@@ -437,30 +437,10 @@ function initPlayground() {
    8. CONTACT & DIRECT DISPATCH
    ========================================================================== */
 function initContactSection() {
-  document.querySelectorAll('#channel-whatsapp-btn, #channel-gmail-btn').forEach(btn => {
+  document.querySelectorAll('#channel-calendly-btn, #channel-whatsapp-btn, #channel-gmail-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       audioFx.playClick();
     });
-  });
-
-  // Dynamic Calendly embed auto-resize to fit content closely without dead space
-  window.addEventListener('message', (e) => {
-    if (e.origin && e.origin.includes('calendly.com') && e.data) {
-      const rawHeight = (e.data.payload && e.data.payload.height) || e.data.height;
-      if (rawHeight) {
-        const height = parseInt(rawHeight, 10);
-        if (!isNaN(height) && height > 0) {
-          const widget = document.querySelector('.calendly-inline-widget');
-          if (widget) {
-            widget.style.height = `${height}px`;
-            const iframe = widget.querySelector('iframe');
-            if (iframe) {
-              iframe.style.height = `${height}px`;
-            }
-          }
-        }
-      }
-    }
   });
 
   // Live Studio Telemetry Clock

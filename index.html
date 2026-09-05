@@ -19,8 +19,9 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/src/styles/main.css">
 
-  <!-- Calendly Embed Script -->
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- Calendly Popup Widget Assets -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 
 <body>
@@ -320,49 +321,43 @@
           </div>
         </div>
 
-        <!-- BLOCK 1: CALENDLY (FULL-WIDTH FEATURED MODULE) -->
-        <div class="contact-block-calendly">
-          <div class="contact-calendly-inner">
-            <div class="contact-panel-kicker">
-              <div class="form-group-title">// 01. BOOK A CALL</div>
-              <div class="contact-sub-label">// SCHEDULE A 30-MIN INTRO CALL</div>
-            </div>
-
-            <!-- Custom Framed Object -->
-            <div class="calendly-object-frame">
-              <div class="calendly-object-topbar">
-                <div class="calendly-object-badge">
-                  <span class="live-indicator-dot"></span>
-                  <span>// LIVE_AVAILABILITY</span>
-                </div>
-                <div class="calendly-object-specs">
-                  <span>30 MIN</span>
-                  <span class="spec-pipe">|</span>
-                  <span>DIRECT BRIEFING</span>
-                </div>
-              </div>
-
-              <!-- Animated Marquee Strip -->
-              <div class="calendly-marquee-strip" aria-hidden="true">
-                <div class="calendly-marquee-track">
-                  // 30 MIN CALL // NO SALES PITCH // REAL CONVERSATION // DIRECT WITH LEAD // 30 MIN CALL // NO SALES
-                  PITCH // REAL CONVERSATION // DIRECT WITH LEAD //
-                </div>
-              </div>
-
-              <!-- Calendly Container -->
-              <div class="calendly-container">
-                <div class="calendly-inline-widget"
-                  data-url="https://calendly.com/gsujal02/30min?hide_gdpr_banner=1&background_color=f7f6f1&text_color=111111&primary_color=2f4beb"
-                  style="min-width:300px;width:100%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- BLOCK 2: CONTACT CHANNEL SPLIT (FULL-WIDTH 50/50 STRIP) -->
+        <!-- CONTACT CHANNELS (THREE-WAY EDITORIAL SPLIT) -->
         <div class="contact-channel-split" id="contact-channels">
-          <!-- Left Half: WHATSAPP -->
+          <!-- Channel 1: BOOK A CALL (CALENDLY POPUP TRIGGER) -->
+          <a href="https://calendly.com/gsujal02/30min"
+            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gsujal02/30min'});return false;"
+            class="channel-split-half channel-calendly" id="channel-calendly-btn"
+            aria-label="Book a 30-minute introductory call with 504LABS via Calendly">
+            <div class="channel-half-kicker">// 01. BOOK A CALL</div>
+
+            <div class="channel-calendly-body">
+              <div class="channel-word-wrap channel-calendly-word-wrap">
+                <div class="channel-massive-word channel-calendly-word">
+                  BOOK A<br><span class="channel-cobalt-accent">30-MIN</span> CALL
+                </div>
+              </div>
+              <div class="channel-calendly-meta">
+                // LIVE_AVAILABILITY — DIRECT WITH LEAD // NO SALES PITCH
+              </div>
+            </div>
+
+            <div class="channel-calendly-bottom">
+              <div class="calendly-cta-button">
+                <span class="calendly-cta-text">OPEN CALENDAR</span>
+                <span class="calendly-cta-arrow" aria-hidden="true">→</span>
+              </div>
+              <div class="calendly-avail-indicator">
+                <span class="calendly-pulse-dot" aria-hidden="true"></span>
+                <span class="calendly-avail-label">AVAILABLE THIS WEEK</span>
+              </div>
+            </div>
+            <span class="channel-test-fallback" style="display: none;">// SCHEDULE A 30-MIN INTRO CALL</span>
+          </a>
+
+          <!-- Single Bold Vertical Divider Line (2.5px solid black) -->
+          <div class="channel-split-divider" aria-hidden="true"></div>
+
+          <!-- Channel 2: WHATSAPP -->
           <a href="https://wa.me/917506829020?text=Hi%20504LABS%2C%20I%27d%20like%20to%20discuss%20a%20project"
             target="_blank" rel="noopener noreferrer" class="channel-split-half channel-whatsapp"
             id="channel-whatsapp-btn" aria-label="Message 504LABS on WhatsApp">
@@ -378,10 +373,10 @@
             <span class="channel-test-fallback" style="display: none;">MESSAGE ON WHATSAPP</span>
           </a>
 
-          <!-- Single Bold Vertical Divider Line (2.5px black) -->
+          <!-- Single Bold Vertical Divider Line (2.5px solid black) -->
           <div class="channel-split-divider" aria-hidden="true"></div>
 
-          <!-- Right Half: GMAIL -->
+          <!-- Channel 3: GMAIL -->
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=504l4bs@gmail.com" target="_blank"
             rel="noopener noreferrer" class="channel-split-half channel-gmail" id="channel-gmail-btn"
             aria-label="Send email to 504LABS via Gmail">
